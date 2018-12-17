@@ -1,3 +1,10 @@
+@import './components/App/App';
+@import './components/Movie/Movie';
+@import './components/UserDisplay/UserDisplay';
+@import './containers/MovieDisplay/MovieDisplay';
+@import './containers/LoginForm/LoginForm';
+@import './containers/SignupForm/SignupForm';
+
 body {
   margin: 0;
   padding: 0;
