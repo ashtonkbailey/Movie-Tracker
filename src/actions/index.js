@@ -1,6 +1,6 @@
 // movie actions
 /////// add movies
-const addMovies = (movies) => ({
+export const addMovies = (movies) => ({
   type: 'ADD_MOVIES',
   movies
 })

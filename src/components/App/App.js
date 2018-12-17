@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import '../../index.scss';
 import { connect } from 'react-redux';
-import * as API from '../../api/apiCalls';
+import * as clean from '../../api/cleaner';
+import * as actions from '../../actions/index';
+import MovieDisplay from '../../containers/MovieDisplay/MovieDisplay';
 
 class App extends Component {
   constructor(){
@@ -12,15 +14,15 @@ class App extends Component {
   // if user is not logged in, display login/signup button
   
   async componentDidMount(){
-    console.log('sara')
-    const movies = await API.fetchMovies()
+    const movies = await clean.cleanMovies()
+    this.props.addMovies(movies)
   }
 
   render() {
     return (
       <div className="App">
         <h1>Movie Tracker</h1>
-        
+        <MovieDisplay />
       </div>
     );
   }
@@ -30,4 +32,8 @@ const mapStateToProps = (state) => ({
   movies: state.movies
 })
 
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = (dispatch) => ({
+  addMovies: (movies)=>dispatch(actions.addMovies(movies))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
