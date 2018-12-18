@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import '../../index.scss';
 import Movie from '../../components/Movie/Movie';
@@ -14,18 +15,31 @@ class MovieDisplay extends Component {
     }
   }
 
-  render(){
-    const allMovies = this.props.movies.map(movie => <Movie {...movie} key={movie.id} />)
-    return(
+  render() {
+    const allMovies = this.props.movies.map(movie => <Movie {...movie} key={movie.id} />);
+    let navBtn;
+
+    if (this.props.type === 'home') {
+      navBtn = (<Link to="/favorites">
+                  <button className="navBtn">View favorites</button>
+                </Link>)
+    } else {
+      navBtn = (<Link to="/">
+                  <button className="navBtn">All Movies</button>
+                </Link>)
+    }
+
+    return (
       <div className="movie-display">
-        <button className="left arrow" title="scroll left">
-          <img src={leftArrow} alt="scroll left" />
+        {navBtn}
+        <button title="scroll left">
+          <img className="left arrow" src={leftArrow} alt="scroll left" />
         </button>
         <div className="movie-container">
           {allMovies}
         </div>
-        <button className="right arrow" title="scroll right">
-          <img src={rightArrow} alt="scroll right" />
+        <button title="scroll right">
+          <img className="right arrow" src={rightArrow} alt="scroll right" />
         </button>
       </div>
     )

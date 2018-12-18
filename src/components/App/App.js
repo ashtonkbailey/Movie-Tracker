@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import '../../index.scss';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
+import '../../index.scss';
 import * as clean from '../../utils/cleaner';
 import * as actions from '../../actions/index';
 import MovieDisplay from '../../containers/MovieDisplay/MovieDisplay';
 import UserDisplay from '../UserDisplay/UserDisplay';
+import UserForm from '../../containers/UserForm/UserForm';
 
 class App extends Component {
   constructor(){
@@ -20,6 +22,8 @@ class App extends Component {
   }
 
   render() {
+    // will need to add a default/error page to router
+
     return (
       <div className="App">
         <h1>
@@ -28,7 +32,12 @@ class App extends Component {
           Tracker
         </h1>
         <UserDisplay />
-        <MovieDisplay />
+        <Switch>
+          <Route exact path='/' render={() => <MovieDisplay type="home" />} />
+          <Route path='/favorites' render={() => <MovieDisplay type="favorites" />} />
+          <Route path='/signup' render={() => <UserForm type="signup" />} />
+          <Route path='/login' render={() => <UserForm type="login" />} />
+        </Switch>
       </div>
     );
   }
@@ -42,4 +51,4 @@ const mapDispatchToProps = (dispatch) => ({
   addMovies: (movies)=>dispatch(actions.addMovies(movies))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
