@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../index.scss';
 import { connect } from 'react-redux';
-import * as clean from '../../api/cleaner';
+import * as clean from '../../utils/cleaner';
 import * as actions from '../../actions/index';
 import MovieDisplay from '../../containers/MovieDisplay/MovieDisplay';
 

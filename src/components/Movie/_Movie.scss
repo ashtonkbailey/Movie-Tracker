@@ -1,0 +1,95 @@
+.movie {
+  width: 250px;
+  position: relative;
+  margin: 40px;
+
+  img {
+    width: 250px;
+  }
+}
+
+.movie-info {
+  width: 250px;
+  height: 375px;
+  background: rgba(0, 0, 0, 0.75);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: 'Sanchez', serif;
+  color: #fff;
+  margin-bottom: 10px;
+  overflow: scroll;
+  cursor: default;
+  opacity: 0;
+  transition: .3s ease;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  h2 {
+    margin: 10px;
+    width: 150px;
+    font-size: 1.5rem;
+  }
+
+  h5 {
+    margin: 0 10px;
+    font-style: italic;
+  }
+
+  p {
+    font-size: .9rem;
+    text-align: left;
+    padding: 10px;
+  }
+}
+
+.fa-star {
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  font-size: 4.3rem;
+  color: rgb(255, 216, 58);
+  z-index: 1;
+}
+
+.rating {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  span {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #000;
+    top: 30px;
+    right: 27.5px;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.add-to-favs {
+  font-family: 'Sanchez', serif;
+  font-size: 1rem;
+  display: block;
+  margin: 0 auto 30px;
+  width: 70%;
+  height: 32px;
+  background: #950202;
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  transition: .4s ease;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.5),
+        inset 0 0 6px 1px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    color: rgb(255, 216, 58);
+    font-size: 1.05rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  }
+}
