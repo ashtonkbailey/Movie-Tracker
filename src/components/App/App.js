@@ -21,7 +21,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>Movie Tracker</h1>
+        <h1>
+          Movie
+          <br/>
+          Tracker
+        </h1>
         <MovieDisplay />
       </div>
     );

@@ -1,0 +1,36 @@
+.movie-display {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-rows: 1fr;
+  overflow: hidden;
+  height: 60%;
+}
+
+.movie-container {
+  display: flex;
+  // white-space: nowrap;
+}
+
+button {
+  outline: none;
+  cursor: pointer;
+  height: 100%;
+  padding: 0;
+}
+
+img {
+  height: 60%;
+  width: 100px;
+}
+
+img:hover {
+  box-shadow:
+    0 0 5px rgba(254, 235, 158, 1),
+    0 0 0px rgba(254, 235, 158, 1),
+    0 0 10px rgba(254, 235, 158, 1);
+}
+
+.arrow {
+  background-color: #292929;
+  border: none;
+}
