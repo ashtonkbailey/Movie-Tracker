@@ -12,3 +12,8 @@ export const addUser = (userObject) => ({
   type: 'ADD_USER',
   user
 })
+
+export const logInUser = (userObject) => ({
+  type: 'LOG_IN_USER',
+  user
+})
