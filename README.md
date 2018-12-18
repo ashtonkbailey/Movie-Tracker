@@ -1,44 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MovieTracker 
 
-## Available Scripts
+## Description
+Movie tracker is a web application designed to allow the user to create a collection of their favorite films. Movie data is populated via [The Movie Database API](https://www.themoviedb.org/documentation/api). Account handling is done via a local backend built in Express.
 
-In the project directory, you can run:
+This project is a part of the Front End Engineering Program at the Turing School of Software and Design. You can find the specs for it [here](https://github.com/turingschool-examples/movie-tracker).
 
-### `npm start`
+## Installation
+Create a directory for the project and cd into it.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Clone down the repo for this project:
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+``` git clone git@github.com:saraebbers/Movie-Tracker.git```
 
-### `npm test`
+Clone down the repo for the backend:
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+``` git clone https://github.com/turingschool-examples/movie-tracker.git ```
 
-### `npm run build`
+Rename the movie-tracker directory 'backend'
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+cd into the backend directory
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+```npm install```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```npm start```
 
-### `npm run eject`
+``` cd ../frontend-movie-tracker ```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```npm install```
+```npm start``` - you will be asked if you should start the server on a new port - say 'yes'
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Contributors and roles
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Sara Ebbers - Co-lead Developer
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Jamie Rushford - Co-lead Developer
 
-## Learn More
+### Ashton Bailey - Co-lead Developer
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Technologies and Resources Used
+  React
+  Redux
+  React Router
+  API
+  Enzyme/Jest
+  HTML/SCSS
+  Git/GitHub
+  This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Design and Comps (Wire-frame, Application Screen shots)
+<img width="885" alt="wireframeuser pfd" src="https://user-images.githubusercontent.com/39168394/50180383-b0881800-02c6-11e9-95eb-654960e3b15f.png">
+<img width="869" alt="wireframenotsignedin pfd" src="https://user-images.githubusercontent.com/39168394/50180388-b2ea7200-02c6-11e9-820b-376381f33643.png">
+<img width="867" alt="login-signin pfd" src="https://user-images.githubusercontent.com/39168394/50180390-b4b43580-02c6-11e9-8a74-e056edc6a918.png">
