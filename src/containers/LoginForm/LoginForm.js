@@ -15,7 +15,7 @@ class LoginForm extends Component {
   }
 
   handleChange = (e) => {
-    const { name, email } = e.target
+    const { name, value } = e.target
     this.setState([name]: value)
   }
 
@@ -23,7 +23,11 @@ class LoginForm extends Component {
     e.preventDefault()
     //const user = await logInUserFetchCall(url, optionsObj)
     //this.props.logInUser()
-    this.setState(userName: '', e-mail: '', password:'')
+    this.setState({
+      userName: '',
+      email: '',
+      password:''
+    })
   }
 
   render() {
@@ -39,11 +43,17 @@ class LoginForm extends Component {
             />
           <input onChange={this.handleChange}
             name='email'
-            value={this.state.e-mail}
+            value={this.state.email}
             placeholder='E-mail'
-            type='e-mail'
+            type='email'
           />
-          <button>LogIn</button>
+          <input onChange={this.handleChange}
+            name='password'
+            value={this.state.password}
+            placeholder='Password'
+            type='password'
+          />
+          <button>Log In</button>
         </form>
       </div>
     )
