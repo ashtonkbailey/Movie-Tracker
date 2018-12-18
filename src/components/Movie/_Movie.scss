@@ -23,6 +23,11 @@
   opacity: 0;
   transition: .3s ease;
 
+  &::-webkit-scrollbar, 
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
   &:hover {
     opacity: 1;
   }

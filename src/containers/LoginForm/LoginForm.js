@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../../index.scss';
 //import {logInUserFetchCall} from 'path'
+import * as actions from '../../actions/index';
 
 
 class LoginForm extends Component {
@@ -16,7 +17,7 @@ class LoginForm extends Component {
 
   handleChange = (e) => {
     const { name, value } = e.target
-    this.setState([name]: value)
+    this.setState({[name]: value})
   }
 
   handleSubmit = async (e) => {
@@ -61,7 +62,7 @@ class LoginForm extends Component {
 }
 
 const mapDispachToProps = (dispach) => ({
-  logInUser: (this.state) => dispach(actions.logInUser(this.state))
+  logInUser: (user) => dispach(actions.logInUser(user))
 })
 
 export default connect(null, mapDispachToProps)(LoginForm);

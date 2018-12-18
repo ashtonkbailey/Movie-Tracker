@@ -18,19 +18,16 @@ button {
   padding: 0;
 }
 
-img {
-  height: 40%;
-  width: 100px;
-}
-
-img:hover {
-  box-shadow:
-    0 0 5px rgba(254, 235, 158, 1),
-    0 0 0px rgba(254, 235, 158, 1),
-    0 0 10px rgba(254, 235, 158, 1);
-}
-
 .arrow {
   background-color: #292929;
   border: none;
+  height: 40%;
+  width: 100px;
+
+  &:hover {
+    box-shadow:
+      0 0 5px rgba(254, 235, 158, 1),
+      0 0 0px rgba(254, 235, 158, 1),
+      0 0 10px rgba(254, 235, 158, 1);
+  }
 }

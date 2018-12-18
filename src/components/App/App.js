@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as clean from '../../utils/cleaner';
 import * as actions from '../../actions/index';
 import MovieDisplay from '../../containers/MovieDisplay/MovieDisplay';
+import UserDisplay from '../UserDisplay/UserDisplay';
 
 class App extends Component {
   constructor(){
@@ -26,6 +27,7 @@ class App extends Component {
           <br/>
           Tracker
         </h1>
+        <UserDisplay />
         <MovieDisplay />
       </div>
     );
