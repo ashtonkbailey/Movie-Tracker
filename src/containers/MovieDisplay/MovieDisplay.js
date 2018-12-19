@@ -20,11 +20,11 @@ class MovieDisplay extends Component {
     let navBtn;
 
     if (this.props.type === 'home') {
-      navBtn = (<Link to="/favorites">
+      navBtn = (<Link to="/favorites" className='link'>
                   <button className="navBtn">View favorites</button>
                 </Link>)
     } else {
-      navBtn = (<Link to="/">
+      navBtn = (<Link to="/" className='link'>
                   <button className="navBtn">All Movies</button>
                 </Link>)
     }
@@ -32,13 +32,13 @@ class MovieDisplay extends Component {
     return (
       <div className="movie-display">
         {navBtn}
-        <button title="scroll left">
+        <button title="scroll left" className='scroll-btn'>
           <img className="left arrow" src={leftArrow} alt="scroll left" />
         </button>
         <div className="movie-container">
           {allMovies}
         </div>
-        <button title="scroll right">
+        <button title="scroll right" className='scroll-btn'>
           <img className="right arrow" src={rightArrow} alt="scroll right" />
         </button>
       </div>

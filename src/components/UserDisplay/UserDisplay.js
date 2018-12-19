@@ -8,15 +8,15 @@ const UserDisplay = (props) => {
   let button
 
   if (user.name) {
-    button = <button>Log Out</button>
+    button = <button className='control'>Log Out</button>
   } else {
     button = 
-      <div>
+      <div className='control-btns'>
         <Link to='/signup'>
-          <button>Sign Up</button>
+          <button className='control'>Sign Up</button>
         </Link>
         <Link to='/login'>
-          <button>Log In</button>
+          <button className='control'>Log In</button>
         </Link>
       </div>
   }

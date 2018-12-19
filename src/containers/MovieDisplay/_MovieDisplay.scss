@@ -2,17 +2,21 @@
   display: grid;
   grid-template-columns: 1fr 8fr 1fr;
   grid-template-rows: 1fr 6fr;
-  overflow: hidden;
   height: 60%;
 }
 
 .movie-container {
+  overflow: scroll;
   display: flex;
   grid-row: 2;
-  // white-space: nowrap;
+  &::-webkit-scrollbar, 
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
 }
 
-button {
+.scroll-btn {
+  grid-row: 2;
   background-color: #292929;
   border: none;
   outline: none;
@@ -32,8 +36,31 @@ button {
       0 0 10px rgba(254, 235, 158, 1);
   }
 }
+.link {
+  grid-row: 1;
+  grid-column: 2;
+  align-self: center;
+  justify-self: center;
+}
 
 .navBtn {
-  grid-row: 1;
-  border: solid white;
+  font-family: 'Sanchez', serif;
+  font-size: 1rem;
+  width: 160px;
+  height: 32px;
+  background: #950202;
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  transition: .4s ease;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.5),
+        inset 0 0 6px 1px rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    color: rgb(255, 216, 58);
+    font-size: 1.05rem;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
+  }
 }
