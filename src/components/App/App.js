@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../../index.scss';
 import * as clean from '../../utils/cleaner';
@@ -24,11 +24,13 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1>
-          Movie
-          <br/>
-          Tracker
-        </h1>
+        <Link to="/">
+          <h1>
+            Movie
+            <br/>
+            Tracker
+          </h1>
+        </Link>
         <UserDisplay />
         <Switch>
           <Route exact path='/' render={() => <MovieDisplay type="home" />} />
