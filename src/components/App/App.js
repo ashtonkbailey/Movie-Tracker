@@ -18,8 +18,9 @@ class App extends Component {
   
   async componentDidMount(){
     const movies = await clean.cleanMovies()
-    this.props.addMovies(movies)
-  }
+      this.props.addMovies(movies)
+    }
+
 
   render() {
     // will need to add a default/error page to router
