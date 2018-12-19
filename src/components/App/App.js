@@ -9,9 +9,6 @@ import UserDisplay from '../UserDisplay/UserDisplay';
 import UserForm from '../../containers/UserForm/UserForm';
 
 class App extends Component {
-  constructor(){
-    super()
-  }
   // remember to add in userComponent
   // if the user is logged in, display userComponent
   // if user is not logged in, display login/signup button
