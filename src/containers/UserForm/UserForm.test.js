@@ -55,6 +55,25 @@ describe('UserForm', () => {
       expect(wrapper.state().userName).toEqual(expected)
     })
 
+    describe('handleSubmit', () => {
+      it('should call logInUser', () => {
+        const mockEvent = { preventDefault: jest.fn() };
+        const mockLogInUser = jest.fn();
+        const wrapper = shallow(<UserForm logInUser={mockLogInUser} />);
+        wrapper.instance().handleSubmit(mockEvent);
+        expect(mockLogInUser).toHaveBeenCalled();
+      });
+
+      it('should update state for logged in user', async () => {
+        const mockEvent = { preventDefault: jest.fn() };
+        const mockLogInUser = jest.fn()
+        const wrapper = shallow(<UserForm logInUser={mockLogInUser} />);
+        const expected = true;
+        await wrapper.instance().handleSubmit(mockEvent);
+        expect(wrapper.state().loggedIn).toEqual(expected);
+      })
+    })
+
   })
 
 
