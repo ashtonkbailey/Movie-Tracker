@@ -59,18 +59,47 @@ describe('UserForm', () => {
       it('should call logInUser', () => {
         const mockEvent = { preventDefault: jest.fn() };
         const mockLogInUser = jest.fn();
-        const wrapper = shallow(<UserForm logInUser={mockLogInUser} />);
-        wrapper.instance().handleSubmit(mockEvent);
+        const wrapper = shallow(<UserForm
+          logInUser={mockLogInUser}
+          type="login"
+        />);
+        wrapper.instance().handleSubmit(mockEvent, 'login');
         expect(mockLogInUser).toHaveBeenCalled();
       });
+
+      it('should call addUser', () => {
+        const mockEvent = { preventDefault: jest.fn() };
+        const mockaddUser = jest.fn();
+        const wrapper = shallow(<UserForm
+          addUser={mockaddUser}
+          type="signup"
+        />);
+        wrapper.instance().handleSubmit(mockEvent, 'signup');
+        expect(mockaddUser).toHaveBeenCalled();
+      })
 
       it('should update state for logged in user', async () => {
         const mockEvent = { preventDefault: jest.fn() };
         const mockLogInUser = jest.fn()
-        const wrapper = shallow(<UserForm logInUser={mockLogInUser} />);
+        const wrapper = shallow(<UserForm
+          logInUser={mockLogInUser}
+          type="login"
+        />);
         const expected = true;
-        await wrapper.instance().handleSubmit(mockEvent);
+        await wrapper.instance().handleSubmit(mockEvent, 'login');
         expect(wrapper.state().loggedIn).toEqual(expected);
+      })
+
+      it('should run handleSubmit on form submit', () => {
+        const wrapper = shallow(<UserForm
+          type="login"
+        />);
+        const e = { preventDefault: jest.fn() }
+        wrapper.instance().handleSubmit = jest.fn()
+
+        wrapper.find('form').simulate('submit', e)
+
+        expect(wrapper.instance().handleSubmit).toBeCalledWith(e, 'login')
       })
     })
 

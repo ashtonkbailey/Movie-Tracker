@@ -22,23 +22,28 @@ export class UserForm extends Component {
     this.setState({[name]: value})
   }
 
-  handleSubmit = async (e) => {
+  handleSubmit = async (e, type) => {
     e.preventDefault()
     const user = {...this.state, loggedIn: true}
+
     //const user = await logInUserFetchCall(url, optionsObj)
-    this.props.logInUser(user)
+    if (type === 'login') {
+      this.props.logInUser(user)
+    } else {
+      this.props.addUser(user)
+    }
     this.setState({ loggedIn: true })
   }
 
   render() {
-
+    const { type } = this.props
     if (this.state.loggedIn) {
       return <Redirect to='/' />
     }
 
     return(
       <div className='login'>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={(e) => this.handleSubmit(e, type)}>
           <input onChange={this.handleChange}
             name='userName'
             value={this.state.userName}
