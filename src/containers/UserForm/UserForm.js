@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import '../../index.scss';
 //import {logInUserFetchCall} from 'path'
 import * as actions from '../../actions/index';
+import { Link, Redirect } from 'react-router-dom';
 
 
 class LoginForm extends Component {
@@ -11,7 +12,8 @@ class LoginForm extends Component {
     this.state = {
       userName: '',
       email: '',
-      password: ''
+      password: '',
+      loggedIn: false
     }
   }
 
@@ -22,16 +24,17 @@ class LoginForm extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault()
+    const user = {...this.state, loggedIn: true}
     //const user = await logInUserFetchCall(url, optionsObj)
-    //this.props.logInUser()
-    this.setState({
-      userName: '',
-      email: '',
-      password:''
-    })
+    this.props.logInUser(user)
+    this.setState({ loggedIn: true })
   }
 
   render() {
+
+    if (this.state.loggedIn) {
+      return <Redirect to='/' />
+    }
 
     return(
       <div className='login'>
@@ -62,7 +65,8 @@ class LoginForm extends Component {
 }
 
 const mapDispachToProps = (dispach) => ({
-  logInUser: (user) => dispach(actions.logInUser(user))
+  logInUser: (user) => dispach(actions.logInUser(user)),
+  addUser: (user) => dispach(actions.addUser(user))
 })
 
 export default connect(null, mapDispachToProps)(LoginForm);
