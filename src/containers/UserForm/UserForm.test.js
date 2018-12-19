@@ -1,5 +1,7 @@
 import { UserForm, mapDispatchToProps } from './UserForm';
-import * as actions from '../../actions/index'
+import * as actions from '../../actions/index';
+import { shallow } from 'enzyme';
+import React from 'react';
 
 describe('UserForm', () => {
   describe('mapDispatchToProps', () => {
@@ -24,6 +26,33 @@ describe('UserForm', () => {
        mappedProps.addUser(mockUser)
 
        expect(mockDispatch).toHaveBeenCalledWith(action)
+    })
+
+  })
+
+  describe('UserForm Component', () => {
+    it('should match the snapshot', () => {
+      const wrapper = shallow(<UserForm />)
+      expect(wrapper).toMatchSnapshot()
+    })
+
+    it('should have the correct default state', () => {
+      const expected = {
+        userName: '',
+        email: '',
+        password: '',
+        loggedIn: false
+      }
+      const wrapper = shallow(<UserForm/>)
+      expect(wrapper.state()).toEqual(expected)
+    })
+
+    it('should change the value of state when handleChange is called', () => {
+      const mockEvent = {target: {name: 'userName', value: 'sally'}}
+      const wrapper = shallow(<UserForm/>)
+      const expected = 'sally'
+      wrapper.instance().handleChange(mockEvent)
+      expect(wrapper.state().userName).toEqual(expected)
     })
 
   })
