@@ -63,15 +63,28 @@ export class UserForm extends Component {
       ? button = 'Log In'
       : button = 'Sign Up'
 
+    let headerText
+    type === 'login'
+      ? headerText = 'Log In'
+      : headerText = 'Sign Up'
+
+    let nameInput
+    type === 'login'
+    ? nameInput = <div></div>
+    : nameInput = (
+        <input onChange={this.handleChange}
+          name='name'
+          value={this.state.name}
+          placeholder='Name'
+          type='text'
+        />
+      )
+
     return(
-      <div className='login'>
+      <div className='user-form'>
+        <h1 class="header-text">{headerText}</h1>
         <form onSubmit={(e) => this.handleSubmit(e, type)}>
-          <input onChange={this.handleChange}
-            name='name'
-            value={this.state.name}
-            placeholder='name'
-            type='text'
-            />
+          {nameInput}
           <input onChange={this.handleChange}
             name='email'
             value={this.state.email}
