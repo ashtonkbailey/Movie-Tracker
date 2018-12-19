@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import '../../index.scss';
 import { addNewUserFetch, getAllUsersFetch } from '../../utils/apiCalls'
 import * as actions from '../../actions/index';
-import { Link, Redirect } from 'react-router-dom';
-import { get } from 'http';
-
+import { Redirect } from 'react-router-dom';
 
 export class UserForm extends Component {
   constructor() {
@@ -26,20 +24,32 @@ export class UserForm extends Component {
   handleSubmit = async (e, type) => {
     e.preventDefault()
     const newUser = {...this.state}
-    if (type === 'login') {
-      this.props.logInUser(newUser)
+    const allUsers = await getAllUsersFetch()
+    const repeatUser = allUsers.find(user => user.email === newUser.email)
+    type === 'login'
+      ? this.handleLogin(repeatUser, newUser)
+      : this.handleNewUser(repeatUser, newUser)
+  }
+
+  handleLogin = (repeatUser, newUser) => {
+    if (!repeatUser) {
+      console.log('Couldn\'t find email')
+    } else if (repeatUser.password !== newUser.password) {
+      console.log('Incorrect Password')
     } else {
-      const allUsers = await getAllUsersFetch()
-      const repeatUser = allUsers.find(user => user.email === newUser.email)
-      if (!repeatUser) {
-        await addNewUserFetch(newUser)
-      } else {
-        console.log('No Repeat Emails!')
-      }
-      // Can refactor to use only one action creator (setCurrentUser)
-      this.props.addUser(newUser)
+      this.props.logInUser(newUser)
+      this.setState({ loggedIn: true })
     }
-    this.setState({ loggedIn: true })
+  }
+
+  handleNewUser = async (repeatUser, newUser) => {
+    if (!repeatUser) {
+      await addNewUserFetch(newUser)
+      this.props.logInUser(newUser)
+      this.setState({ loggedIn: true })
+    } else {
+      console.log('No Repeat Emails!')
+    }
   }
 
   render() {
@@ -47,6 +57,11 @@ export class UserForm extends Component {
     if (this.state.loggedIn) {
       return <Redirect to='/' />
     }
+
+    let button
+    type === 'login'
+      ? button = 'Log In'
+      : button = 'Sign Up'
 
     return(
       <div className='login'>
@@ -69,7 +84,7 @@ export class UserForm extends Component {
             placeholder='Password'
             type='password'
           />
-          <button>Log In</button>
+          <button>{button}</button>
         </form>
       </div>
     )
@@ -77,8 +92,7 @@ export class UserForm extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  logInUser: (user) => dispatch(actions.logInUser(user)),
-  addUser: (user) => dispatch(actions.addUser(user))
+  logInUser: (user) => dispatch(actions.logInUser(user))
 })
 
 export default connect(null, mapDispatchToProps)(UserForm);

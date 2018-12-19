@@ -17,6 +17,7 @@ export const addNewUserFetch = async (user) => {
     }
   })
   const userMessage = await result.json()
+  console.log(userMessage)
 }
 
 export const getAllUsersFetch = async () => {

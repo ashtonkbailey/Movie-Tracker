@@ -16,18 +16,6 @@ describe('UserForm', () => {
     //expectation
       expect(mockDispatch).toHaveBeenCalledWith(action)
     })
-
-    it('should return a props obj with the method addUser', () => {
-      const mockDispatch = jest.fn()
-      const mockUser = {name: 'sally', email: 'sally@example.com', password: 'passwords'}
-       const action = actions.addUser(mockUser)
-
-       const mappedProps = mapDispatchToProps(mockDispatch)
-       mappedProps.addUser(mockUser)
-
-       expect(mockDispatch).toHaveBeenCalledWith(action)
-    })
-
   })
 
   describe('UserForm Component', () => {
@@ -67,17 +55,6 @@ describe('UserForm', () => {
         expect(mockLogInUser).toHaveBeenCalled();
       });
 
-      it('should call addUser', () => {
-        const mockEvent = { preventDefault: jest.fn() };
-        const mockaddUser = jest.fn();
-        const wrapper = shallow(<UserForm
-          addUser={mockaddUser}
-          type="signup"
-        />);
-        wrapper.instance().handleSubmit(mockEvent, 'signup');
-        expect(mockaddUser).toHaveBeenCalled();
-      })
-
       it('should update state for logged in user', async () => {
         const mockEvent = { preventDefault: jest.fn() };
         const mockLogInUser = jest.fn()
@@ -102,8 +79,5 @@ describe('UserForm', () => {
         expect(wrapper.instance().handleSubmit).toBeCalledWith(e, 'login')
       })
     })
-
   })
-
-
 })

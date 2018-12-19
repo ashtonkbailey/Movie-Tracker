@@ -8,11 +8,6 @@ export const addMovies = (movies) => ({
 // user actions
 //////// add favorite, delete favorite, sign in, sign out, create user
 
-export const addUser = (user) => ({
-  type: 'ADD_USER',
-  user,
-});
-
 export const logInUser = (user) => ({
   type: 'LOG_IN_USER',
   user,
