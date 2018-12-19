@@ -41,14 +41,14 @@ In order to run locally you will also need to apply for an API key [here](https:
 ### Ashton Bailey - Co-lead Developer
 
 ## Technologies and Resources Used
-  React
-  Redux
-  React Router
-  API
-  Enzyme/Jest
-  HTML/SCSS
-  Git/GitHub
-  This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  - React
+  - Redux
+  - React Router
+  - API
+  - Enzyme/Jest
+  - HTML/SCSS
+  - Git/GitHub
+  - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Design and Comps (Wire-frame, Application Screen shots)
 <img width="885" alt="wireframeuser pfd" src="https://user-images.githubusercontent.com/39168394/50180383-b0881800-02c6-11e9-95eb-654960e3b15f.png">
