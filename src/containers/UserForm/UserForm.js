@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import '../../index.scss';
 import { addNewUserFetch, getAllUsersFetch } from '../../utils/apiCalls'
 import * as actions from '../../actions/index';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 
 export class UserForm extends Component {
   constructor() {
@@ -23,7 +23,7 @@ export class UserForm extends Component {
 
   handleSubmit = async (e, type) => {
     e.preventDefault()
-    const newUser = {...this.state}
+    const newUser = {...this.state, loggedIn: true}
     const allUsers = await getAllUsersFetch()
     const repeatUser = allUsers.find(user => user.email === newUser.email)
     type === 'login'
@@ -37,7 +37,7 @@ export class UserForm extends Component {
     } else if (repeatUser.password !== newUser.password) {
       console.log('Incorrect Password')
     } else {
-      this.props.logInUser(newUser)
+      this.props.logInUser({...newUser, name: repeatUser.name})
       this.setState({ loggedIn: true })
     }
   }
@@ -63,15 +63,28 @@ export class UserForm extends Component {
       ? button = 'Log In'
       : button = 'Sign Up'
 
+    let headerText
+    type === 'login'
+      ? headerText = 'Log In'
+      : headerText = 'Sign Up'
+
+    let nameInput
+    type === 'login'
+    ? nameInput = <div></div>
+    : nameInput = (
+        <input onChange={this.handleChange}
+          name='name'
+          value={this.state.name}
+          placeholder='Name'
+          type='text'
+        />
+      )
+
     return(
-      <div className='login'>
+      <div className='user-form'>
+        <h1 class="header-text">{headerText}</h1>
         <form onSubmit={(e) => this.handleSubmit(e, type)}>
-          <input onChange={this.handleChange}
-            name='name'
-            value={this.state.name}
-            placeholder='name'
-            type='text'
-            />
+          {nameInput}
           <input onChange={this.handleChange}
             name='email'
             value={this.state.email}
@@ -95,4 +108,4 @@ export const mapDispatchToProps = (dispatch) => ({
   logInUser: (user) => dispatch(actions.logInUser(user))
 })
 
-export default connect(null, mapDispatchToProps)(UserForm);
+export default withRouter(connect(null, mapDispatchToProps)(UserForm));

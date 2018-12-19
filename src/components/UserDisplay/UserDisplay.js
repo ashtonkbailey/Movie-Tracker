@@ -1,14 +1,19 @@
 import React from 'react';
 import '../../index.scss';
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+import { logOutUser } from '../../actions/index';
 
 const UserDisplay = (props) => {
   const { user } = props
   let button
 
   if (user.name) {
-    button = <button className='control'>Log Out</button>
+    button = 
+      <button 
+        className='control'
+        onClick={props.logOutUser}
+      >Log Out</button>
   } else {
     button = 
       <div className='control-btns'>
@@ -32,4 +37,8 @@ const mapStateToProps = (state) => ({
   user: state.user
 })
 
-export default connect(mapStateToProps, null)(UserDisplay);
+const mapDispatchToProps = (dispatch) => ({
+  logOutUser: () => dispatch(logOutUser())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserDisplay);
