@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 import '../../index.scss';
 import Movie from '../../components/Movie/Movie';
@@ -19,11 +19,11 @@ class MovieDisplay extends Component {
     const allMovies = this.props.movies.map(movie => <Movie {...movie} key={movie.id} />);
     let navBtn;
 
-    if (this.props.type === 'home' && this.props.user.name) {
+    if (this.props.type === 'home' && this.props.user.email) {
       navBtn = (<Link to="/favorites" className='link'>
                   <button className="navBtn">View favorites</button>
                 </Link>)
-    } else if (this.props.type === 'favorites' && this.props.user.name) {
+    } else if (this.props.type === 'favorites' && this.props.user.email) {
       navBtn = (<Link to="/" className='link'>
                   <button className="navBtn">All Movies</button>
                 </Link>)
@@ -52,4 +52,4 @@ const mapStateToProps = (state) => ({
   user: state.user
 })
 
-export default connect(mapStateToProps, null)(MovieDisplay)
+export default withRouter(connect(mapStateToProps, null)(MovieDisplay));
