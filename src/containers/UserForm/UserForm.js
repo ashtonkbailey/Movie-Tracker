@@ -6,7 +6,7 @@ import * as actions from '../../actions/index';
 import { Link, Redirect } from 'react-router-dom';
 
 
-class LoginForm extends Component {
+export class UserForm extends Component {
   constructor() {
     super()
     this.state = {
@@ -64,9 +64,9 @@ class LoginForm extends Component {
   }
 }
 
-const mapDispachToProps = (dispach) => ({
-  logInUser: (user) => dispach(actions.logInUser(user)),
-  addUser: (user) => dispach(actions.addUser(user))
+export const mapDispatchToProps = (dispatch) => ({
+  logInUser: (user) => dispatch(actions.logInUser(user)),
+  addUser: (user) => dispatch(actions.addUser(user))
 })
 
-export default connect(null, mapDispachToProps)(LoginForm);
+export default connect(null, mapDispatchToProps)(UserForm);
