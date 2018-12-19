@@ -7,3 +7,22 @@ export const fetchMovies = async() => {
   return movieData.results
 }
 
+export const addNewUserFetch = async (user) => {
+  const url = 'http://localhost:3000/api/users/new'
+  const result = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  const userMessage = await result.json()
+}
+
+export const getAllUsersFetch = async () => {
+  const url = 'http://localhost:3000/api/users'
+  const result = await fetch(url)
+  const users = await result.json()
+  return users.data
+}
+

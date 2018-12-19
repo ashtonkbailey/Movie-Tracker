@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../../index.scss';
-//import {logInUserFetchCall} from 'path'
+import { addNewUserFetch, getAllUsersFetch } from '../../utils/apiCalls'
 import * as actions from '../../actions/index';
 import { Link, Redirect } from 'react-router-dom';
+import { get } from 'http';
 
 
 export class UserForm extends Component {
   constructor() {
     super()
     this.state = {
-      userName: '',
+      name: '',
       email: '',
       password: '',
       loggedIn: false
@@ -24,13 +25,19 @@ export class UserForm extends Component {
 
   handleSubmit = async (e, type) => {
     e.preventDefault()
-    const user = {...this.state, loggedIn: true}
-
-    //const user = await logInUserFetchCall(url, optionsObj)
+    const newUser = {...this.state}
     if (type === 'login') {
-      this.props.logInUser(user)
+      this.props.logInUser(newUser)
     } else {
-      this.props.addUser(user)
+      const allUsers = await getAllUsersFetch()
+      const repeatUser = allUsers.find(user => user.email === newUser.email)
+      if (!repeatUser) {
+        await addNewUserFetch(newUser)
+      } else {
+        console.log('No Repeat Emails!')
+      }
+      // Can refactor to use only one action creator (setCurrentUser)
+      this.props.addUser(newUser)
     }
     this.setState({ loggedIn: true })
   }
@@ -45,9 +52,9 @@ export class UserForm extends Component {
       <div className='login'>
         <form onSubmit={(e) => this.handleSubmit(e, type)}>
           <input onChange={this.handleChange}
-            name='userName'
-            value={this.state.userName}
-            placeholder='UserName'
+            name='name'
+            value={this.state.name}
+            placeholder='name'
             type='text'
             />
           <input onChange={this.handleChange}
