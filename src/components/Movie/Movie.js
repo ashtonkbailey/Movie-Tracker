@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../../index.scss';
-import { addFavorite } from '../../utils/apiCalls'
+import { addFavorite, getFavorites } from '../../utils/apiCalls';
 
 
 class Movie extends Component {
@@ -21,12 +21,11 @@ class Movie extends Component {
     }
     try {
       await addFavorite(favoriteObj)
+      const favorites = await getFavorites(user.id)
     } catch(error) {
       console.log(error)
-    }
-    
+    } 
   }
-
 
   render() {
     const { title, id, rating, text, release, poster, user } = this.props;
@@ -39,7 +38,11 @@ class Movie extends Component {
         </Link>
       )
     } else {
-      button = <button onClick={()=>this.handleAddFavorite()}className="add-to-favs">Add to Favorites</button>
+      button = 
+        <button
+          onClick={()=>this.handleAddFavorite()}
+          className="add-to-favs"
+        >Add to Favorites</button>
     }
 
     return(
