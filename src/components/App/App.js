@@ -37,6 +37,12 @@ class App extends Component {
           <Route path='/favorites' render={() => <MovieDisplay type="favorites" />} />
           <Route path='/signup' render={() => <UserForm type="signup" />} />
           <Route path='/login' render={() => <UserForm type="login" />} />
+          <Route path='' render={() => 
+            (<div>
+              <h1>Oops! Couldn't find that page!</h1>
+              <Link to='/'><button className="go-home">E.T. Phone Home</button></Link>
+            </div>)
+          } />
         </Switch>
       </div>
     );
