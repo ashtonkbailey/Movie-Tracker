@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import '../../index.scss';
 import { addNewUserFetch, signInUser } from '../../utils/apiCalls'
 import * as actions from '../../actions/index';
-import { Redirect, withRouter } from 'react-router-dom';
+import { Redirect, withRouter, Link } from 'react-router-dom';
 
 export class UserForm extends Component {
   constructor() {
@@ -83,7 +83,7 @@ export class UserForm extends Component {
 
     let nameInput
     type === 'login'
-    ? nameInput = <div></div>
+    ? nameInput = <Link to='/signup'><div className="no-acct-msg">Don't have an account? Sign up <span className="signup-here">here</span>.</div></Link>
     : nameInput = (
         <input onChange={this.handleChange}
           name='name'
