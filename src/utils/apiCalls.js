@@ -16,14 +16,23 @@ export const addNewUserFetch = async (user) => {
       'Content-Type': 'application/json'
     }
   })
-  const userMessage = await result.json()
-  console.log(userMessage)
+  if (!result.ok) {
+    throw new Error('User already exists!')
+  }
 }
 
-export const getAllUsersFetch = async () => {
+export const signInUser = async (user) => {
   const url = 'http://localhost:3000/api/users'
-  const result = await fetch(url)
-  const users = await result.json()
-  return users.data
+  const result = await fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(user),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+  if (!result.ok) {
+    throw new Error('Email or password do not match!')
+  }
+  const returnedUsers = await result.json()
+  return returnedUsers.data
 }
-

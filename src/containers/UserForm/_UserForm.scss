@@ -58,3 +58,15 @@ form {
     }
   }
 }
+
+.user-msg {
+  color: #FEEB9E;
+  font-family: 'Sanchez', serif;
+  text-align: center;
+  opacity: 0;
+  transition: 0.2s;
+}
+
+.error {
+  opacity: 1;
+}
