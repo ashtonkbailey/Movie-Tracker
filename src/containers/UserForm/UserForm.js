@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../../index.scss';
-import { addNewUserFetch, getAllUsersFetch } from '../../utils/apiCalls'
+import { addNewUserFetch, signInUser } from '../../utils/apiCalls'
 import * as actions from '../../actions/index';
 import { Redirect, withRouter } from 'react-router-dom';
 
@@ -12,7 +12,9 @@ export class UserForm extends Component {
       name: '',
       email: '',
       password: '',
-      loggedIn: false
+      loggedIn: false,
+      signInError: false,
+      logInError: false
     }
   }
 
@@ -24,38 +26,49 @@ export class UserForm extends Component {
   handleSubmit = async (e, type) => {
     e.preventDefault()
     const newUser = {...this.state, loggedIn: true}
-    const allUsers = await getAllUsersFetch()
-    const repeatUser = allUsers.find(user => user.email === newUser.email)
     type === 'login'
-      ? this.handleLogin(repeatUser, newUser)
-      : this.handleNewUser(repeatUser, newUser)
+      ? this.handleLogin(newUser)
+      : this.handleNewUser(newUser)
   }
 
-  handleLogin = (repeatUser, newUser) => {
-    if (!repeatUser) {
-      console.log('Couldn\'t find email')
-    } else if (repeatUser.password !== newUser.password) {
-      console.log('Incorrect Password')
-    } else {
-      this.props.logInUser({...newUser, name: repeatUser.name})
+  handleLogin = async (newUser) => {
+    newUser.email = newUser.email.toLowerCase()
+    try {
+      const loggedInUser = await signInUser(newUser)
+      this.props.logInUser({...loggedInUser})
       this.setState({ loggedIn: true })
+    } catch (error) {
+      this.setState({ password: '', logInError: true })
     }
   }
 
-  handleNewUser = async (repeatUser, newUser) => {
-    if (!repeatUser) {
+  handleNewUser = async (newUser) => {
+    try {
       await addNewUserFetch(newUser)
       this.props.logInUser(newUser)
       this.setState({ loggedIn: true })
-    } else {
-      console.log('No Repeat Emails!')
+    } catch (error) {
+      this.setState({ email: '', password: '', signInError: true })
     }
   }
 
   render() {
     const { type } = this.props
+    const { signInError, logInError } = this.state
     if (this.state.loggedIn) {
       return <Redirect to='/' />
+    }
+
+    let errorText
+    if (signInError) {
+      errorText = 'User email already exists! Please log in or try a different email.'
+    } else if (logInError) {
+      errorText = 'Email and password do not match.'
+    }
+
+    let error = false
+    if (signInError || logInError) {
+      error = true
     }
 
     let button
@@ -80,9 +93,9 @@ export class UserForm extends Component {
         />
       )
 
-    return(
+    return (
       <div className='user-form'>
-        <h1 class="header-text">{headerText}</h1>
+        <h1 className="header-text">{headerText}</h1>
         <form onSubmit={(e) => this.handleSubmit(e, type)}>
           {nameInput}
           <input onChange={this.handleChange}
@@ -99,6 +112,7 @@ export class UserForm extends Component {
           />
           <button>{button}</button>
         </form>
+        <p className={`user-msg ${error && 'error'}`}>{errorText}</p>
       </div>
     )
   }
