@@ -1,5 +1,4 @@
 import moviesReducer from './moviesReducer';
-import * as actions from '../actions/index'
 
 describe('moviesReducer', () => {
   it('should return the default state', () => {
