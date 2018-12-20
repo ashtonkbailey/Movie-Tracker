@@ -5,7 +5,7 @@ import '../../index.scss';
 import * as clean from '../../utils/cleaner';
 import * as actions from '../../actions/index';
 import MovieDisplay from '../../containers/MovieDisplay/MovieDisplay';
-import UserDisplay from '../UserDisplay/UserDisplay';
+import UserDisplay from '../../containers/UserDisplay/UserDisplay';
 import UserForm from '../../containers/UserForm/UserForm';
 
 class App extends Component {
