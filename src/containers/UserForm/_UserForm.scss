@@ -1,5 +1,5 @@
 .user-form {
-  background: #950202;
+  background: #750413;
   width: 60%;
   max-width: 900px;
   min-width: 350px;
@@ -69,4 +69,17 @@ form {
 
 .error {
   opacity: 1;
+}
+
+.no-acct-msg {
+  width: 300px;
+  text-align: center;
+  color: #FEEB9E;
+  font-family: 'Sanchez', serif;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+span.signup-here {
+  text-decoration: underline;
 }

@@ -1,13 +1,13 @@
 .movie-display {
-  display: grid;
-  grid-template-columns: 1fr 8fr 1fr;
-  height: 60%;
+  margin: 0 50px;
+  background: rgba(45, 45, 45, 0.8);
+  border-radius: 5px;
+  padding: 25px 10px 0 25px;
 }
 
 .movie-container {
   overflow: scroll;
   display: flex;
-  grid-row: 2;
   &::-webkit-scrollbar, 
   &::-webkit-scrollbar-corner {
     background-color: transparent;
@@ -15,7 +15,6 @@
 }
 
 .scroll-btn {
-  grid-row: 2;
   background-color: #292929;
   border: none;
   outline: none;
@@ -35,11 +34,11 @@
       0 0 10px rgba(254, 235, 158, 1);
   }
 }
+
 .link {
-  grid-row: 1;
-  grid-column: 2;
-  align-self: center;
-  justify-self: center;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .navBtn {

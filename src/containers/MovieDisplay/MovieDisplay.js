@@ -32,15 +32,9 @@ class MovieDisplay extends Component {
     return (
       <div className="movie-display">
         {navBtn}
-        <button title="scroll left" className='scroll-btn'>
-          <img className="left arrow" src={leftArrow} alt="scroll left" />
-        </button>
         <div className="movie-container">
           {allMovies}
         </div>
-        <button title="scroll right" className='scroll-btn'>
-          <img className="right arrow" src={rightArrow} alt="scroll right" />
-        </button>
       </div>
     )
   }
