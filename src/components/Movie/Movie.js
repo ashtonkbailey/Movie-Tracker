@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../../index.scss';
 import { addFavorite, getFavorites } from '../../utils/apiCalls';
+import PropTypes from 'prop-types';
 
 
 class Movie extends Component {
@@ -61,6 +62,16 @@ class Movie extends Component {
       </div>
     )
   }
+}
+
+Movie.propTypes = {
+  user: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  rating: PropTypes.number.isRequired,
+  text: PropTypes.string.isRequired,
+  release: PropTypes.string.isRequired, 
+  poster: PropTypes.string.isRequired
 }
 
 const mapStateToProps = (state) => ({

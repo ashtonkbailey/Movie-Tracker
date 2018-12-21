@@ -7,6 +7,8 @@ import Movie from '../../components/Movie/Movie';
 import leftArrow from '../../assets/back.png';
 import rightArrow from '../../assets/next.png';
 
+import PropTypes from 'prop-types';
+
 class MovieDisplay extends Component {
   constructor() {
     super()
@@ -39,6 +41,11 @@ class MovieDisplay extends Component {
     )
   }
 
+}
+
+MovieDisplay.propTypes = {
+  movies: PropTypes.array.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 const mapStateToProps = (state) => ({
