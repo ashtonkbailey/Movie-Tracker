@@ -4,6 +4,7 @@ import '../../index.scss';
 import { addNewUserFetch, signInUser } from '../../utils/apiCalls'
 import * as actions from '../../actions/index';
 import { Redirect, withRouter, Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export class UserForm extends Component {
   constructor() {
@@ -116,6 +117,10 @@ export class UserForm extends Component {
       </div>
     )
   }
+}
+
+UserForm.propTypes = {
+  logInUser: PropTypes.func.isRequired
 }
 
 export const mapDispatchToProps = (dispatch) => ({

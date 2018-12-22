@@ -3,6 +3,7 @@ import '../../index.scss';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
 import { logOutUser } from '../../actions/index';
+import PropTypes from 'prop-types';
 
 const UserDisplay = (props) => {
   const { user } = props
@@ -31,6 +32,11 @@ const UserDisplay = (props) => {
       {button}
     </div>
   )
+}
+
+UserDisplay.propTypes = {
+  user: PropTypes.object.isRequired,
+  logOutUser: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({

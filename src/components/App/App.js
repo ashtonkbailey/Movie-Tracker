@@ -7,6 +7,7 @@ import * as actions from '../../actions/index';
 import MovieDisplay from '../../containers/MovieDisplay/MovieDisplay';
 import UserDisplay from '../../containers/UserDisplay/UserDisplay';
 import UserForm from '../../containers/UserForm/UserForm';
+import PropTypes from 'prop-types'
 
 class App extends Component {
   // remember to add in userComponent
@@ -47,6 +48,11 @@ class App extends Component {
       </div>
     );
   }
+}
+
+App.propTypes = {
+  movies: PropTypes.array.isRequired,
+  addMovies: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
