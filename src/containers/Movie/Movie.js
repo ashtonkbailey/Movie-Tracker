@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import '../../index.scss';
 import { addFavoriteThunk } from '../../thunks/addFavorite'
 import { getFavoritesThunk } from '../../thunks/getFavorites'
+import { removeFavoriteThunk } from '../../thunks/removeFavorite'
+
 import PropTypes from 'prop-types';
 
 
@@ -25,8 +27,15 @@ class Movie extends Component {
     getFavoritesThunk(user.id)
   }
 
+  handleRemoveFavorite = async () => {
+    const { id, user, removeFavoriteThunk, getFavoritesThunk } = this.props;
+
+    await removeFavoriteThunk(id, user.id)
+    getFavoritesThunk(user.id)
+  }
+
   render() {
-    const { title, rating, text, release, poster, user } = this.props;
+    const { title, rating, text, release, poster, user, favorite } = this.props;
 
     let button
     if (!user.name) {
@@ -35,6 +44,12 @@ class Movie extends Component {
           <button className="add-to-favs">Login to Save</button>
         </Link>
       )
+    } else if(favorite) {
+      button = 
+        <button
+          onClick={()=>this.handleRemoveFavorite()}
+          className="add-to-favs"
+        >Remove from Favorites</button>
     } else {
       button = 
         <button
@@ -44,7 +59,7 @@ class Movie extends Component {
     }
 
     return(
-      <div className="movie">
+      <div className={`movie ${favorite && 'favorite'}`}>
         <img src={`https://image.tmdb.org/t/p/w500${poster}`} alt='' />
         <div className="movie-info">
           <div className="rating">
@@ -70,7 +85,10 @@ Movie.propTypes = {
   release: PropTypes.string.isRequired, 
   poster: PropTypes.string.isRequired,
   favorites: PropTypes.array.isRequired,
-  addFavoriteThunk: PropTypes.func.isRequired
+  addFavoriteThunk: PropTypes.func.isRequired,
+  getFavoriteThunk: PropTypes.func.isRequired,
+  removeFavoriteThunk: PropTypes.func.isRequired
+
 }
 
 const mapStateToProps = (state) => ({
@@ -80,7 +98,8 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addFavoriteThunk: (favoriteObj, favorites) => dispatch(addFavoriteThunk(favoriteObj, favorites)),
-  getFavoritesThunk: (userId) => dispatch(getFavoritesThunk(userId))
+  getFavoritesThunk: (userId) => dispatch(getFavoritesThunk(userId)),
+  removeFavoriteThunk: (userId, movieId) => dispatch(removeFavoriteThunk(userId, movieId))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Movie);

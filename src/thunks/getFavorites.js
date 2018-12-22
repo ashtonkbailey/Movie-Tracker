@@ -9,7 +9,9 @@ export const getFavoritesThunk = (userId) => {
         throw new Error('Unable to get your favorites')
       }
       const favorites = await result.json()
-      dispatch(getFavorites(favorites.data))
+      const favoriteIds = favorites.data.map(favorite => favorite.movie_id)
+      console.log(favoriteIds)
+      dispatch(getFavorites(favoriteIds))
     } catch (error) {
       console.log(error)
     }

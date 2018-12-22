@@ -31,7 +31,9 @@ export class UserForm extends Component {
     type === 'login'
       ? await this.handleLogin(newUser)
       : await this.handleNewUser(newUser)
-    this.props.getFavoritesThunk(this.props.user.id)
+    if (!this.state.signInError && !this.state.logInError){
+      this.props.getFavoritesThunk(this.props.user.id)
+    }
   }
 
   handleLogin = async (newUser) => {
