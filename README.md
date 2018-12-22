@@ -30,6 +30,11 @@ cd into the backend directory
 
 In order to run locally you will also need to apply for an API key [here](https://www.themoviedb.org/documentation/api). This key should live in a file called `apiKey.js` in the `utils` directory.
 
+For example:
+```
+export const apiKey = //Your key here//
+```
+
 ```npm start``` - you will be asked if you should start the server on a new port - say 'yes'
 
 ## Contributors and roles
