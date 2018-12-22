@@ -16,3 +16,8 @@ export const logInUser = (user) => ({
 export const logOutUser = () => ({
   type: 'LOG_OUT_USER',
 });
+
+export const getFavorites = (favorites) => ({
+  type: 'GET_FAVORITES',
+  favorites
+})

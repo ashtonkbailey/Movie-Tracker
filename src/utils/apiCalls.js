@@ -19,6 +19,8 @@ export const addNewUserFetch = async (user) => {
   if (!result.ok) {
     throw new Error('User already exists!')
   }
+  const data = await result.json()
+  return data.id
 }
 
 export const signInUser = async (user) => {
@@ -35,37 +37,5 @@ export const signInUser = async (user) => {
   }
   const returnedUsers = await result.json()
   return returnedUsers.data
-}
-
-export const addFavorite = async (favoriteObj) => {
-  const favorites = await getFavorites(favoriteObj.user_id)
-  let alreadyAFav = favorites.find(favorite => {
-    return favorite.movie_id === favoriteObj.movie_id
-  })
-  if (alreadyAFav) {
-    throw new Error('already a favorite')
-  }
-  const url = 'http://localhost:3000/api/users/favorites/new'
-  const result = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(favoriteObj),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  if (!result.ok) {
-    throw new Error('Unable to save to favorites')
-  }
-  const returnedId = await result.json()
-}
-
-export const getFavorites = async (userId) => {
-    const url = `http://localhost:3000/api/users/${userId}/favorites`
-  const result = await fetch(url)
-  if (!result.ok) {
-    throw new Error('Unable to get your favorites')
-  }
-  const favorites = await result.json()
- return favorites.data
 }
 
