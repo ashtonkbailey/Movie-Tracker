@@ -25,7 +25,7 @@ class MovieDisplay extends Component {
     } else if (this.props.type === 'home') {
       movies = this.props.movies.map(movie => <Movie {...movie} key={movie.id} favorite={false}/>)
     } else if (this.props.type === 'favorites' && !this.props.favorites.length){
-      movies = <h2>Don't you like anything! damn you are picky</h2>
+      movies = <h2 className='nofav'>You have no saved favorites</h2>
     } else {
       movies = this.props.movies.map(movie => {
         if (this.props.favorites && this.props.favorites.includes(movie.id)) {

@@ -49,7 +49,7 @@ class Movie extends Component {
         <button
           onClick={()=>this.handleRemoveFavorite()}
           className="add-to-favs"
-        >Remove from Favorites</button>
+        >Remove Favorite</button>
     } else {
       button = 
         <button
