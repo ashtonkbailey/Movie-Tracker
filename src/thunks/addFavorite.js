@@ -3,7 +3,7 @@ export const addFavoriteThunk = (favoriteObj, favorites) => {
     try {
       if (favorites.length) {
         let alreadyAFav = favorites.find(favorite => {
-          return favorite.movie_id === favoriteObj.movie_id
+          return favorite === favoriteObj.movie_id
         })
         if (alreadyAFav) {
           throw new Error('Already a favorite')

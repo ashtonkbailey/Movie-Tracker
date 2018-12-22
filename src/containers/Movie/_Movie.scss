@@ -98,3 +98,21 @@
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
   }
 }
+
+.favorite {
+  border: solid red 5px;
+}
+
+.nofav {
+  text-align: center;
+  margin: auto;
+  height: 160px;
+  padding-top: 1.2em;
+  font-size: 2em;
+  color: rgba(254, 235, 158, 1);
+  font-family: 'Sanchez', serif;
+  text-shadow:
+    0 0 5px rgba(254, 235, 158, 1),
+    0 0 0px rgba(254, 235, 158, 1),
+    0 0 10px rgba(254, 235, 158, 1);
+}

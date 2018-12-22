@@ -14,7 +14,26 @@ class MovieDisplay extends Component {
   }
 
   render() {
-    const allMovies = this.props.movies.map(movie => <Movie {...movie} key={movie.id} />);
+    let movies;
+    if (this.props.type === 'home' && this.props.user.email){
+      movies = this.props.movies.map(movie => {
+        if (this.props.favorites && this.props.favorites.includes(movie.id)) {
+          return <Movie {...movie} key= {movie.id} favorite={true} />
+        }
+        return <Movie {...movie} key={movie.id} favorite={false}/>
+      })
+    } else if (this.props.type === 'home') {
+      movies = this.props.movies.map(movie => <Movie {...movie} key={movie.id} favorite={false}/>)
+    } else if (this.props.type === 'favorites' && !this.props.favorites.length){
+      movies = <h2 className='nofav'>You have no saved favorites</h2>
+    } else {
+      movies = this.props.movies.map(movie => {
+        if (this.props.favorites && this.props.favorites.includes(movie.id)) {
+          return <Movie {...movie} key= {movie.id} favorite={true} />
+        }
+      })
+    }
+
     let navBtn;
 
     if (this.props.type === 'home' && this.props.user.email) {
@@ -25,13 +44,13 @@ class MovieDisplay extends Component {
       navBtn = (<Link to="/" className='link'>
                   <button className="navBtn">All Movies</button>
                 </Link>)
-    }
+    } 
 
     return (
       <div className="movie-display">
         {navBtn}
         <div className="movie-container">
-          {allMovies}
+          {movies}
         </div>
       </div>
     )
@@ -41,12 +60,14 @@ class MovieDisplay extends Component {
 
 MovieDisplay.propTypes = {
   movies: PropTypes.array.isRequired,
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  favorites: PropTypes.array.isRequired
 }
 
 const mapStateToProps = (state) => ({
   movies: state.movies,
-  user: state.user
+  user: state.user,
+  favorites: state.favorites
 })
 
 export default withRouter(connect(mapStateToProps, null)(MovieDisplay));
