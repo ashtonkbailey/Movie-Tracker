@@ -2,14 +2,15 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import '../../index.scss';
-import { addFavorite, getFavorites } from '../../utils/apiCalls';
+import { addFavoriteThunk } from '../../thunks/addFavorite'
+import { getFavoritesThunk } from '../../thunks/getFavorites'
 import PropTypes from 'prop-types';
 
 
 class Movie extends Component {
   
   handleAddFavorite = async () => {
-    const { title, id, rating, text, release, poster, user } = this.props;
+    const { title, id, rating, text, release, poster, user, addFavoriteThunk, getFavoritesThunk, favorites } = this.props;
 
     let favoriteObj = {
       title: title,
@@ -20,16 +21,12 @@ class Movie extends Component {
       poster_path: poster,
       user_id: user.id
     }
-    try {
-      await addFavorite(favoriteObj)
-      const favorites = await getFavorites(user.id)
-    } catch(error) {
-      console.log(error)
-    } 
+    await addFavoriteThunk(favoriteObj, favorites)
+    getFavoritesThunk(user.id)
   }
 
   render() {
-    const { title, id, rating, text, release, poster, user } = this.props;
+    const { title, rating, text, release, poster, user } = this.props;
 
     let button
     if (!user.name) {
@@ -71,11 +68,19 @@ Movie.propTypes = {
   rating: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   release: PropTypes.string.isRequired, 
-  poster: PropTypes.string.isRequired
+  poster: PropTypes.string.isRequired,
+  favorites: PropTypes.array.isRequired,
+  addFavoriteThunk: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  favorites: state.favorites
 })
 
-export default connect(mapStateToProps, null)(Movie);
+const mapDispatchToProps = (dispatch) => ({
+  addFavoriteThunk: (favoriteObj, favorites) => dispatch(addFavoriteThunk(favoriteObj, favorites)),
+  getFavoritesThunk: (userId) => dispatch(getFavoritesThunk(userId))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Movie);

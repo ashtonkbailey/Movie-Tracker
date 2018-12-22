@@ -5,6 +5,7 @@ import { addNewUserFetch, signInUser } from '../../utils/apiCalls'
 import * as actions from '../../actions/index';
 import { Redirect, withRouter, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { getFavoritesThunk } from '../../thunks/getFavorites';
 
 export class UserForm extends Component {
   constructor() {
@@ -28,8 +29,9 @@ export class UserForm extends Component {
     e.preventDefault()
     const newUser = {...this.state, loggedIn: true}
     type === 'login'
-      ? this.handleLogin(newUser)
-      : this.handleNewUser(newUser)
+      ? await this.handleLogin(newUser)
+      : await this.handleNewUser(newUser)
+    this.props.getFavoritesThunk(this.props.user.id)
   }
 
   handleLogin = async (newUser) => {
@@ -45,8 +47,8 @@ export class UserForm extends Component {
 
   handleNewUser = async (newUser) => {
     try {
-      await addNewUserFetch(newUser)
-      this.props.logInUser(newUser)
+      const userId = await addNewUserFetch(newUser)
+      this.props.logInUser({...newUser, id: userId})
       this.setState({ loggedIn: true })
     } catch (error) {
       this.setState({ email: '', password: '', signInError: true })
@@ -84,12 +86,17 @@ export class UserForm extends Component {
 
     let nameInput
     type === 'login'
-    ? nameInput = <Link to='/signup'><div className="no-acct-msg">Don't have an account? Sign up <span className="signup-here">here</span>.</div></Link>
+    ? nameInput = (
+      <Link to='/signup'>
+        <div className="no-acct-msg">Don't have an account? Sign up <span className="signup-here">here</span>.
+        </div>
+      </Link>
+    )
     : nameInput = (
         <input onChange={this.handleChange}
           name='name'
           value={this.state.name}
-          placeholder='Name'
+          placeholder='Name (optional)'
           type='text'
         />
       )
@@ -104,6 +111,7 @@ export class UserForm extends Component {
             value={this.state.email}
             placeholder='E-mail'
             type='email'
+            autoFocus={true}
           />
           <input onChange={this.handleChange}
             name='password'
@@ -120,11 +128,18 @@ export class UserForm extends Component {
 }
 
 UserForm.propTypes = {
-  logInUser: PropTypes.func.isRequired
+  logInUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  getFavoritesThunk: PropTypes.func.isRequired
 }
 
-export const mapDispatchToProps = (dispatch) => ({
-  logInUser: (user) => dispatch(actions.logInUser(user))
+export const mapStateToProps = (state) => ({
+  user: state.user
 })
 
-export default withRouter(connect(null, mapDispatchToProps)(UserForm));
+export const mapDispatchToProps = (dispatch) => ({
+  logInUser: (user) => dispatch(actions.logInUser(user)),
+  getFavoritesThunk: (userId) => dispatch(getFavoritesThunk(userId))
+})
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserForm));

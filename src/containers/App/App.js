@@ -10,9 +10,6 @@ import UserForm from '../../containers/UserForm/UserForm';
 import PropTypes from 'prop-types'
 
 class App extends Component {
-  // remember to add in userComponent
-  // if the user is logged in, display userComponent
-  // if user is not logged in, display login/signup button
   
   async componentDidMount(){
     const movies = await clean.cleanMovies()
@@ -21,8 +18,6 @@ class App extends Component {
 
 
   render() {
-    // will need to add a default/error page to router
-
     return (
       <div className="App">
         <Link to="/">
