@@ -1,3 +1,5 @@
+import { setError } from '../actions'
+
 export const removeFavoriteThunk = (id, userId) => {
   return async (dispatch) => {
     try {
@@ -10,12 +12,10 @@ export const removeFavoriteThunk = (id, userId) => {
         }
       })
       if (!response.ok) {
-        throw Error ('Could not delete this from favorites, you are stuck with this bad movie for ever!!!!!!')
+        throw Error ('Unable to remove favorite')
       }
-      const result = await response.json()
-      console.log('response', result)
     } catch (error) {
-      console.log(error)
+      dispatch(setError(error.message))
     }
   }
 }

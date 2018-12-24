@@ -1,3 +1,5 @@
+import { setError } from '../actions'
+
 export const addFavoriteThunk = (favoriteObj, favorites) => {
   return async (dispatch) => {
     try {
@@ -21,7 +23,7 @@ export const addFavoriteThunk = (favoriteObj, favorites) => {
         throw new Error('Unable to save to favorites')
       }
     } catch (error) {
-      console.log(error)
+      dispatch(setError(error.message))
     }
   }
 }

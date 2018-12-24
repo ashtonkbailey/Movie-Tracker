@@ -1,12 +1,11 @@
 import { addFavoriteThunk } from './addFavorite'
+import { setError } from '../actions'
 
 describe('addFavoriteThunk', () => {
-  let mockUrl
   let mockFav
   let mockDispatch
 
   beforeEach(() => {
-    mockUrl = 'www.test.com'
     mockDispatch = jest.fn()
     mockFav = {
       title: 'Balto',
@@ -20,14 +19,28 @@ describe('addFavoriteThunk', () => {
   })
 
   it('should throw an error if result is not ok', async () => {
-    // window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-    //   ok: false,
-    //   statusText: 'Unable to save favorite'
-    // }))
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: false,
+      statusText: 'Unable to save to favorite'
+    }))
 
-    // const thunk = addFavoriteThunk(mockUrl)
+    const thunk = addFavoriteThunk(mockFav, [])
 
-    // await thunk(mockDispatch)
+    await thunk(mockDispatch)
 
+    expect(mockDispatch).toBeCalledWith(setError('Unable to save to favorites'))
+  })
+
+  it('should throw an error if already a favorite', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: false,
+      statusText: 'Already a favorite'
+    }))
+
+    const thunk = addFavoriteThunk(mockFav, [1])
+
+    await thunk(mockDispatch)
+
+    expect(mockDispatch).toBeCalledWith(setError('Already a favorite'))
   })
 })

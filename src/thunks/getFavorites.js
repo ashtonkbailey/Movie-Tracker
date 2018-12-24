@@ -1,4 +1,4 @@
-import { getFavorites } from '../actions/index'
+import { getFavorites, setError } from '../actions/index'
 
 export const getFavoritesThunk = (userId) => {
   return async (dispatch) => {
@@ -12,7 +12,7 @@ export const getFavoritesThunk = (userId) => {
       const favoriteIds = favorites.data.map(favorite => favorite.movie_id)
       dispatch(getFavorites(favoriteIds))
     } catch (error) {
-      console.log(error)
+      dispatch(setError(error.message))
     }
   }
 }

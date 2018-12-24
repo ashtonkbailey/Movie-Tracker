@@ -1,5 +1,5 @@
 import { getFavoritesThunk } from './getFavorites'
-import { getFavorites } from '../actions';
+import { getFavorites, setError } from '../actions';
 
 describe('getFavoritesThunk', () => {
   let mockDispatch
@@ -9,17 +9,16 @@ describe('getFavoritesThunk', () => {
   })
 
   it('should throw an error if result is not ok', async () => {
-    // window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-    //   ok: false,
-    //   statusText: 'Unable to save favorite'
-    // }))
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: false,
+      statusText: 'Unable to get your favorites'
+    }))
 
-    // const thunk = addFavoriteThunk(mockUrl)
+    const thunk = getFavoritesThunk()
 
-    // await thunk(mockDispatch)
+    await thunk(mockDispatch)
 
-
-    // I think we will need some sort of global error state which can be set with an actin. This will probably help with our UI error handling but will also make testing the rest of the thunks possible.
+    expect(mockDispatch).toBeCalledWith(setError('Unable to get your favorites'))
   })
 
   it('should dispatch getFavorites if response is ok', async () => {
