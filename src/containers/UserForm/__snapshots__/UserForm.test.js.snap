@@ -29,11 +29,12 @@ ShallowWrapper {
           <input
             name="name"
             onChange={[Function]}
-            placeholder="Name"
+            placeholder="Name (optional)"
             type="text"
             value=""
           />
           <input
+            autoFocus={true}
             name="email"
             onChange={[Function]}
             placeholder="E-mail"
@@ -80,11 +81,12 @@ ShallowWrapper {
             <input
               name="name"
               onChange={[Function]}
-              placeholder="Name"
+              placeholder="Name (optional)"
               type="text"
               value=""
             />,
             <input
+              autoFocus={true}
               name="email"
               onChange={[Function]}
               placeholder="E-mail"
@@ -113,7 +115,7 @@ ShallowWrapper {
             "props": Object {
               "name": "name",
               "onChange": [Function],
-              "placeholder": "Name",
+              "placeholder": "Name (optional)",
               "type": "text",
               "value": "",
             },
@@ -126,6 +128,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
+              "autoFocus": true,
               "name": "email",
               "onChange": [Function],
               "placeholder": "E-mail",
@@ -198,11 +201,12 @@ ShallowWrapper {
             <input
               name="name"
               onChange={[Function]}
-              placeholder="Name"
+              placeholder="Name (optional)"
               type="text"
               value=""
             />
             <input
+              autoFocus={true}
               name="email"
               onChange={[Function]}
               placeholder="E-mail"
@@ -249,11 +253,12 @@ ShallowWrapper {
               <input
                 name="name"
                 onChange={[Function]}
-                placeholder="Name"
+                placeholder="Name (optional)"
                 type="text"
                 value=""
               />,
               <input
+                autoFocus={true}
                 name="email"
                 onChange={[Function]}
                 placeholder="E-mail"
@@ -282,7 +287,7 @@ ShallowWrapper {
               "props": Object {
                 "name": "name",
                 "onChange": [Function],
-                "placeholder": "Name",
+                "placeholder": "Name (optional)",
                 "type": "text",
                 "value": "",
               },
@@ -295,6 +300,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
+                "autoFocus": true,
                 "name": "email",
                 "onChange": [Function],
                 "placeholder": "E-mail",

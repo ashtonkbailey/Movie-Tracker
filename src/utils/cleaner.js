@@ -1,6 +1,6 @@
 import { fetchMovies } from './apiCalls';
 
-export const cleanMovies = async()=> {
+export const cleanMovies = async () => {
   const uncleanMovies = await fetchMovies()
   const cleanMovies = uncleanMovies.map(movie =>({
       title: movie.title,
