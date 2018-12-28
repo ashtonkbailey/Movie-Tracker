@@ -44,16 +44,16 @@ export class Movie extends Component {
           <button className="add-to-favs">Login to Save</button>
         </Link>
       )
-    } else if(favorite) {
+    } else if (favorite) {
       button = 
         <button
-          onClick={()=>this.handleRemoveFavorite()}
+          onClick={() => this.handleRemoveFavorite()}
           className="add-to-favs"
         >Remove Favorite</button>
     } else {
       button = 
         <button
-          onClick={()=>this.handleAddFavorite()}
+          onClick={() => this.handleAddFavorite()}
           className="add-to-favs"
         >Add to Favorites</button>
     }
