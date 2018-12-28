@@ -9,7 +9,7 @@ import { removeFavoriteThunk } from '../../thunks/removeFavorite'
 import PropTypes from 'prop-types';
 
 
-class Movie extends Component {
+export class Movie extends Component {
   
   handleAddFavorite = async () => {
     const { title, id, rating, text, release, poster, user, addFavoriteThunk, getFavoritesThunk, favorites } = this.props;
@@ -91,12 +91,12 @@ Movie.propTypes = {
 
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user,
   favorites: state.favorites
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   addFavoriteThunk: (favoriteObj, favorites) => dispatch(addFavoriteThunk(favoriteObj, favorites)),
   getFavoritesThunk: (userId) => dispatch(getFavoritesThunk(userId)),
   removeFavoriteThunk: (userId, movieId) => dispatch(removeFavoriteThunk(userId, movieId))
