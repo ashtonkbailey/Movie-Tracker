@@ -5,6 +5,9 @@ import { addFavoriteThunk } from '../../thunks/addFavorite';
 import { getFavoritesThunk } from '../../thunks/getFavorites';
 import { removeFavoriteThunk } from '../../thunks/removeFavorite';
 
+jest.mock('../../thunks/addFavorite')
+jest.mock('../../thunks/removeFavorite')
+jest.mock('../../thunks/getFavorites')
 
 describe('Movie', () => {
   describe('Movie Component', () => {
@@ -79,22 +82,20 @@ describe('Movie', () => {
   describe('mapDispatchToProps', () => {
 
     it('should return a props object with the method addFavoriteThunk', () => {
-      const favoriteObj = {
-        title: 'MovieTitle',
-        id: 123,
-        rating: 9,
-        text: 'MovieText',
-        release: 'Maythe4thbewithyou'
-      } 
-      const favorites = []
       const mockDispatch = jest.fn()
+      addFavoriteThunk.mockImplementation(() => 'Added Fav')
+      removeFavoriteThunk.mockImplementation(() => 'Removed Fav')
+      getFavoritesThunk.mockImplementation(() => 'Got em!')
+
 
       const mappedProps = mapDispatchToProps(mockDispatch)
-      mappedProps.addFavoriteThunk(favoriteObj, favorites)
-      mappedProps.getFavoritesThunk(2)
-      mappedProps.removeFavoriteThunk(123, 2)
+      mappedProps.addFavoriteThunk()
+      mappedProps.removeFavoriteThunk()
+      mappedProps.getFavoritesThunk()
 
-      expect(mockDispatch).toBeCalledTimes(3)
+      expect(mockDispatch).toHaveBeenNthCalledWith(1, 'Added Fav')
+      expect(mockDispatch).toHaveBeenNthCalledWith(2, 'Removed Fav')
+      expect(mockDispatch).toHaveBeenNthCalledWith(3, 'Got em!')
     })
   })
 
