@@ -1,9 +1,38 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MovieDisplay MovieDisplay Component should match the snapshot 1`] = `
+exports[`MovieDisplay MovieDisplay Component Related to Navigation Button-- should match the snapshot, if type is favorites and there is a user signed in 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <withRouter(Connect(MovieDisplay)) />,
+  Symbol(enzyme.__unrendered__): <MovieDisplay
+    favorites={
+      Array [
+        Object {
+          "id": 987,
+          "title": "movieTitle",
+        },
+      ]
+    }
+    movies={
+      Array [
+        Object {
+          "id": 111,
+          "title": "One",
+        },
+        Object {
+          "id": 222,
+          "title": "two",
+        },
+      ]
+    }
+    type="favorites"
+    user={
+      Object {
+        "email": "something@anotherThing.com",
+        "id": 123,
+        "name": "bob",
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -15,25 +44,1417 @@ ShallowWrapper {
   Symbol(enzyme.__node__): Object {
     "instance": null,
     "key": undefined,
-    "nodeType": "class",
+    "nodeType": "host",
     "props": Object {
-      "children": [Function],
+      "children": Array [
+        <Link
+          className="link"
+          replace={false}
+          to="/"
+        >
+          <button
+            className="navBtn"
+          >
+            All Movies
+          </button>
+        </Link>,
+        <div
+          className="movie-container"
+        />,
+      ],
+      "className": "movie-display",
     },
     "ref": null,
-    "rendered": [Function],
-    "type": [Function],
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <button
+            className="navBtn"
+          >
+            All Movies
+          </button>,
+          "className": "link",
+          "replace": false,
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "All Movies",
+            "className": "navBtn",
+          },
+          "ref": null,
+          "rendered": "All Movies",
+          "type": "button",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            undefined,
+            undefined,
+          ],
+          "className": "movie-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          undefined,
+          undefined,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "class",
+      "nodeType": "host",
       "props": Object {
-        "children": [Function],
+        "children": Array [
+          <Link
+            className="link"
+            replace={false}
+            to="/"
+          >
+            <button
+              className="navBtn"
+            >
+              All Movies
+            </button>
+          </Link>,
+          <div
+            className="movie-container"
+          />,
+        ],
+        "className": "movie-display",
       },
       "ref": null,
-      "rendered": [Function],
-      "type": [Function],
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <button
+              className="navBtn"
+            >
+              All Movies
+            </button>,
+            "className": "link",
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "All Movies",
+              "className": "navBtn",
+            },
+            "ref": null,
+            "rendered": "All Movies",
+            "type": "button",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              undefined,
+              undefined,
+            ],
+            "className": "movie-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            undefined,
+            undefined,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`MovieDisplay MovieDisplay Component Related to Navigation Button-- should match the snapshot, if type is home and there is a user signed in 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieDisplay
+    favorites={
+      Array [
+        Object {
+          "id": 987,
+          "title": "movieTitle",
+        },
+      ]
+    }
+    movies={
+      Array [
+        Object {
+          "id": 111,
+          "title": "One",
+        },
+        Object {
+          "id": 222,
+          "title": "two",
+        },
+      ]
+    }
+    type="home"
+    user={
+      Object {
+        "email": "something@anotherThing.com",
+        "id": 123,
+        "name": "bob",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Link
+          className="link"
+          replace={false}
+          to="/favorites"
+        >
+          <button
+            className="navBtn"
+          >
+            View favorites
+          </button>
+        </Link>,
+        <div
+          className="movie-container"
+        >
+          <Connect(Movie)
+            favorite={false}
+            id={111}
+            title="One"
+          />
+          <Connect(Movie)
+            favorite={false}
+            id={222}
+            title="two"
+          />
+        </div>,
+      ],
+      "className": "movie-display",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <button
+            className="navBtn"
+          >
+            View favorites
+          </button>,
+          "className": "link",
+          "replace": false,
+          "to": "/favorites",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "View favorites",
+            "className": "navBtn",
+          },
+          "ref": null,
+          "rendered": "View favorites",
+          "type": "button",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Connect(Movie)
+              favorite={false}
+              id={111}
+              title="One"
+            />,
+            <Connect(Movie)
+              favorite={false}
+              id={222}
+              title="two"
+            />,
+          ],
+          "className": "movie-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "111",
+            "nodeType": "class",
+            "props": Object {
+              "favorite": false,
+              "id": 111,
+              "title": "One",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "222",
+            "nodeType": "class",
+            "props": Object {
+              "favorite": false,
+              "id": 222,
+              "title": "two",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Link
+            className="link"
+            replace={false}
+            to="/favorites"
+          >
+            <button
+              className="navBtn"
+            >
+              View favorites
+            </button>
+          </Link>,
+          <div
+            className="movie-container"
+          >
+            <Connect(Movie)
+              favorite={false}
+              id={111}
+              title="One"
+            />
+            <Connect(Movie)
+              favorite={false}
+              id={222}
+              title="two"
+            />
+          </div>,
+        ],
+        "className": "movie-display",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <button
+              className="navBtn"
+            >
+              View favorites
+            </button>,
+            "className": "link",
+            "replace": false,
+            "to": "/favorites",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "View favorites",
+              "className": "navBtn",
+            },
+            "ref": null,
+            "rendered": "View favorites",
+            "type": "button",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Connect(Movie)
+                favorite={false}
+                id={111}
+                title="One"
+              />,
+              <Connect(Movie)
+                favorite={false}
+                id={222}
+                title="two"
+              />,
+            ],
+            "className": "movie-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "111",
+              "nodeType": "class",
+              "props": Object {
+                "favorite": false,
+                "id": 111,
+                "title": "One",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "222",
+              "nodeType": "class",
+              "props": Object {
+                "favorite": false,
+                "id": 222,
+                "title": "two",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`MovieDisplay MovieDisplay Component Related to which movies are displayed-- should match the snapshot, if type is favorites and there is a user who does have favorites saved 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieDisplay
+    favorites={
+      Array [
+        Object {
+          "id": 987,
+          "title": "movieTitle",
+        },
+      ]
+    }
+    movies={
+      Array [
+        Object {
+          "id": 111,
+          "title": "One",
+        },
+        Object {
+          "id": 222,
+          "title": "two",
+        },
+      ]
+    }
+    type="favorites"
+    user={
+      Object {
+        "email": "something@anotherThing.com",
+        "id": 123,
+        "name": "bob",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Link
+          className="link"
+          replace={false}
+          to="/"
+        >
+          <button
+            className="navBtn"
+          >
+            All Movies
+          </button>
+        </Link>,
+        <div
+          className="movie-container"
+        />,
+      ],
+      "className": "movie-display",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <button
+            className="navBtn"
+          >
+            All Movies
+          </button>,
+          "className": "link",
+          "replace": false,
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "All Movies",
+            "className": "navBtn",
+          },
+          "ref": null,
+          "rendered": "All Movies",
+          "type": "button",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            undefined,
+            undefined,
+          ],
+          "className": "movie-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          undefined,
+          undefined,
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Link
+            className="link"
+            replace={false}
+            to="/"
+          >
+            <button
+              className="navBtn"
+            >
+              All Movies
+            </button>
+          </Link>,
+          <div
+            className="movie-container"
+          />,
+        ],
+        "className": "movie-display",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <button
+              className="navBtn"
+            >
+              All Movies
+            </button>,
+            "className": "link",
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "All Movies",
+              "className": "navBtn",
+            },
+            "ref": null,
+            "rendered": "All Movies",
+            "type": "button",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              undefined,
+              undefined,
+            ],
+            "className": "movie-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            undefined,
+            undefined,
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`MovieDisplay MovieDisplay Component Related to which movies are displayed-- should match the snapshot, if type is favorites and there is a user who does not have favorites saved 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieDisplay
+    favorites={Array []}
+    movies={
+      Array [
+        Object {
+          "id": 111,
+          "title": "One",
+        },
+        Object {
+          "id": 222,
+          "title": "two",
+        },
+      ]
+    }
+    type="favorites"
+    user={
+      Object {
+        "email": "something@anotherThing.com",
+        "id": 123,
+        "name": "bob",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Link
+          className="link"
+          replace={false}
+          to="/"
+        >
+          <button
+            className="navBtn"
+          >
+            All Movies
+          </button>
+        </Link>,
+        <div
+          className="movie-container"
+        >
+          <h2
+            className="nofav"
+          >
+            You have no saved favorites
+          </h2>
+        </div>,
+      ],
+      "className": "movie-display",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <button
+            className="navBtn"
+          >
+            All Movies
+          </button>,
+          "className": "link",
+          "replace": false,
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "All Movies",
+            "className": "navBtn",
+          },
+          "ref": null,
+          "rendered": "All Movies",
+          "type": "button",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <h2
+            className="nofav"
+          >
+            You have no saved favorites
+          </h2>,
+          "className": "movie-container",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "You have no saved favorites",
+            "className": "nofav",
+          },
+          "ref": null,
+          "rendered": "You have no saved favorites",
+          "type": "h2",
+        },
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Link
+            className="link"
+            replace={false}
+            to="/"
+          >
+            <button
+              className="navBtn"
+            >
+              All Movies
+            </button>
+          </Link>,
+          <div
+            className="movie-container"
+          >
+            <h2
+              className="nofav"
+            >
+              You have no saved favorites
+            </h2>
+          </div>,
+        ],
+        "className": "movie-display",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <button
+              className="navBtn"
+            >
+              All Movies
+            </button>,
+            "className": "link",
+            "replace": false,
+            "to": "/",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "All Movies",
+              "className": "navBtn",
+            },
+            "ref": null,
+            "rendered": "All Movies",
+            "type": "button",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <h2
+              className="nofav"
+            >
+              You have no saved favorites
+            </h2>,
+            "className": "movie-container",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "You have no saved favorites",
+              "className": "nofav",
+            },
+            "ref": null,
+            "rendered": "You have no saved favorites",
+            "type": "h2",
+          },
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`MovieDisplay MovieDisplay Component Related to which movies are displayed-- should match the snapshot, if type is home and the user has an e mail 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieDisplay
+    favorites={
+      Array [
+        Object {
+          "id": 111,
+          "title": "One",
+        },
+      ]
+    }
+    movies={
+      Array [
+        Object {
+          "id": 111,
+          "title": "One",
+        },
+        Object {
+          "id": 222,
+          "title": "two",
+        },
+      ]
+    }
+    type="home"
+    user={
+      Object {
+        "email": "something@anotherThing.com",
+        "id": 123,
+        "name": "bob",
+      }
+    }
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Link
+          className="link"
+          replace={false}
+          to="/favorites"
+        >
+          <button
+            className="navBtn"
+          >
+            View favorites
+          </button>
+        </Link>,
+        <div
+          className="movie-container"
+        >
+          <Connect(Movie)
+            favorite={false}
+            id={111}
+            title="One"
+          />
+          <Connect(Movie)
+            favorite={false}
+            id={222}
+            title="two"
+          />
+        </div>,
+      ],
+      "className": "movie-display",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <button
+            className="navBtn"
+          >
+            View favorites
+          </button>,
+          "className": "link",
+          "replace": false,
+          "to": "/favorites",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "View favorites",
+            "className": "navBtn",
+          },
+          "ref": null,
+          "rendered": "View favorites",
+          "type": "button",
+        },
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Connect(Movie)
+              favorite={false}
+              id={111}
+              title="One"
+            />,
+            <Connect(Movie)
+              favorite={false}
+              id={222}
+              title="two"
+            />,
+          ],
+          "className": "movie-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "111",
+            "nodeType": "class",
+            "props": Object {
+              "favorite": false,
+              "id": 111,
+              "title": "One",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "222",
+            "nodeType": "class",
+            "props": Object {
+              "favorite": false,
+              "id": 222,
+              "title": "two",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Link
+            className="link"
+            replace={false}
+            to="/favorites"
+          >
+            <button
+              className="navBtn"
+            >
+              View favorites
+            </button>
+          </Link>,
+          <div
+            className="movie-container"
+          >
+            <Connect(Movie)
+              favorite={false}
+              id={111}
+              title="One"
+            />
+            <Connect(Movie)
+              favorite={false}
+              id={222}
+              title="two"
+            />
+          </div>,
+        ],
+        "className": "movie-display",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": <button
+              className="navBtn"
+            >
+              View favorites
+            </button>,
+            "className": "link",
+            "replace": false,
+            "to": "/favorites",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "View favorites",
+              "className": "navBtn",
+            },
+            "ref": null,
+            "rendered": "View favorites",
+            "type": "button",
+          },
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Connect(Movie)
+                favorite={false}
+                id={111}
+                title="One"
+              />,
+              <Connect(Movie)
+                favorite={false}
+                id={222}
+                title="two"
+              />,
+            ],
+            "className": "movie-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "111",
+              "nodeType": "class",
+              "props": Object {
+                "favorite": false,
+                "id": 111,
+                "title": "One",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "222",
+              "nodeType": "class",
+              "props": Object {
+                "favorite": false,
+                "id": 222,
+                "title": "two",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`MovieDisplay MovieDisplay Component Related to which movies are displayed-- should match the snapshot, if type is home and there is not a user 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MovieDisplay
+    favorites={
+      Array [
+        Object {
+          "id": 987,
+          "title": "movieTitle",
+        },
+      ]
+    }
+    movies={
+      Array [
+        Object {
+          "id": 111,
+          "title": "One",
+        },
+        Object {
+          "id": 222,
+          "title": "two",
+        },
+      ]
+    }
+    type="home"
+    user={Object {}}
+  />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        undefined,
+        <div
+          className="movie-container"
+        >
+          <Connect(Movie)
+            favorite={false}
+            id={111}
+            title="One"
+          />
+          <Connect(Movie)
+            favorite={false}
+            id={222}
+            title="two"
+          />
+        </div>,
+      ],
+      "className": "movie-display",
+    },
+    "ref": null,
+    "rendered": Array [
+      undefined,
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Connect(Movie)
+              favorite={false}
+              id={111}
+              title="One"
+            />,
+            <Connect(Movie)
+              favorite={false}
+              id={222}
+              title="two"
+            />,
+          ],
+          "className": "movie-container",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": "111",
+            "nodeType": "class",
+            "props": Object {
+              "favorite": false,
+              "id": 111,
+              "title": "One",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": "222",
+            "nodeType": "class",
+            "props": Object {
+              "favorite": false,
+              "id": 222,
+              "title": "two",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          undefined,
+          <div
+            className="movie-container"
+          >
+            <Connect(Movie)
+              favorite={false}
+              id={111}
+              title="One"
+            />
+            <Connect(Movie)
+              favorite={false}
+              id={222}
+              title="two"
+            />
+          </div>,
+        ],
+        "className": "movie-display",
+      },
+      "ref": null,
+      "rendered": Array [
+        undefined,
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Connect(Movie)
+                favorite={false}
+                id={111}
+                title="One"
+              />,
+              <Connect(Movie)
+                favorite={false}
+                id={222}
+                title="two"
+              />,
+            ],
+            "className": "movie-container",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "111",
+              "nodeType": "class",
+              "props": Object {
+                "favorite": false,
+                "id": 111,
+                "title": "One",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": "222",
+              "nodeType": "class",
+              "props": Object {
+                "favorite": false,
+                "id": 222,
+                "title": "two",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
     },
   ],
   Symbol(enzyme.__options__): Object {
