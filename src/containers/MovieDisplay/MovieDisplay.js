@@ -5,13 +5,14 @@ import '../../index.scss';
 import Movie from '../Movie/Movie';
 import PropTypes from 'prop-types';
 
-class MovieDisplay extends Component {
-  constructor() {
-    super()
-    this.state = {
-      favoriteDisplay: false
-    }
-  }
+export class MovieDisplay extends Component {
+  // appears to no longer be necessary-- consider removal
+  // constructor() {
+  //   super()
+  //   // this.state = {
+  //   //   favoriteDisplay: false
+  //   // }
+  // }
 
   render() {
     let movies;
@@ -31,6 +32,7 @@ class MovieDisplay extends Component {
         if (this.props.favorites && this.props.favorites.includes(movie.id)) {
           return <Movie {...movie} key= {movie.id} favorite={true} />
         }
+        return movies;
       })
     }
 
@@ -61,10 +63,11 @@ class MovieDisplay extends Component {
 MovieDisplay.propTypes = {
   movies: PropTypes.array.isRequired,
   user: PropTypes.object.isRequired,
-  favorites: PropTypes.array.isRequired
+  favorites: PropTypes.array.isRequired,
+  type: PropTypes.string.isRequired
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   movies: state.movies,
   user: state.user,
   favorites: state.favorites
