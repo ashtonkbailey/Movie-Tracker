@@ -4,10 +4,15 @@ exports[`Movie Movie Component should match the snapshot when there is a user lo
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Movie
+    addFavoriteThunk={[MockFunction]}
     favorite={true}
+    favorites={Array []}
+    getFavoritesThunk={[MockFunction]}
     id={123}
+    poster="This is a string"
     rating={9}
     release="May4bewithyou"
+    removeFavoriteThunk={[MockFunction]}
     text="MovieText"
     title="MovieTitle"
     user={
@@ -32,7 +37,7 @@ ShallowWrapper {
       "children": Array [
         <img
           alt=""
-          src="https://image.tmdb.org/t/p/w500undefined"
+          src="https://image.tmdb.org/t/p/w500This is a string"
         />,
         <div
           className="movie-info"
@@ -78,7 +83,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "alt": "",
-          "src": "https://image.tmdb.org/t/p/w500undefined",
+          "src": "https://image.tmdb.org/t/p/w500This is a string",
         },
         "ref": null,
         "rendered": null,
@@ -242,7 +247,7 @@ ShallowWrapper {
         "children": Array [
           <img
             alt=""
-            src="https://image.tmdb.org/t/p/w500undefined"
+            src="https://image.tmdb.org/t/p/w500This is a string"
           />,
           <div
             className="movie-info"
@@ -288,7 +293,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "alt": "",
-            "src": "https://image.tmdb.org/t/p/w500undefined",
+            "src": "https://image.tmdb.org/t/p/w500This is a string",
           },
           "ref": null,
           "rendered": null,
@@ -468,10 +473,15 @@ exports[`Movie Movie Component should match the snapshot when there is a user lo
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Movie
+    addFavoriteThunk={[MockFunction]}
     favorite={false}
+    favorites={Array []}
+    getFavoritesThunk={[MockFunction]}
     id={123}
+    poster="This is a string"
     rating={9}
     release="May4bewithyou"
+    removeFavoriteThunk={[MockFunction]}
     text="MovieText"
     title="MovieTitle"
     user={
@@ -496,7 +506,7 @@ ShallowWrapper {
       "children": Array [
         <img
           alt=""
-          src="https://image.tmdb.org/t/p/w500undefined"
+          src="https://image.tmdb.org/t/p/w500This is a string"
         />,
         <div
           className="movie-info"
@@ -542,7 +552,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "alt": "",
-          "src": "https://image.tmdb.org/t/p/w500undefined",
+          "src": "https://image.tmdb.org/t/p/w500This is a string",
         },
         "ref": null,
         "rendered": null,
@@ -706,7 +716,7 @@ ShallowWrapper {
         "children": Array [
           <img
             alt=""
-            src="https://image.tmdb.org/t/p/w500undefined"
+            src="https://image.tmdb.org/t/p/w500This is a string"
           />,
           <div
             className="movie-info"
@@ -752,7 +762,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "alt": "",
-            "src": "https://image.tmdb.org/t/p/w500undefined",
+            "src": "https://image.tmdb.org/t/p/w500This is a string",
           },
           "ref": null,
           "rendered": null,
@@ -932,9 +942,14 @@ exports[`Movie Movie Component should match the snapshot when there is not a use
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Movie
+    addFavoriteThunk={[MockFunction]}
+    favorites={Array []}
+    getFavoritesThunk={[MockFunction]}
     id={123}
+    poster="This is a string"
     rating={9}
     release="May4bewithyou"
+    removeFavoriteThunk={[MockFunction]}
     text="MovieText"
     title="MovieTitle"
     user={Object {}}
@@ -955,7 +970,7 @@ ShallowWrapper {
       "children": Array [
         <img
           alt=""
-          src="https://image.tmdb.org/t/p/w500undefined"
+          src="https://image.tmdb.org/t/p/w500This is a string"
         />,
         <div
           className="movie-info"
@@ -1001,7 +1016,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "alt": "",
-          "src": "https://image.tmdb.org/t/p/w500undefined",
+          "src": "https://image.tmdb.org/t/p/w500This is a string",
         },
         "ref": null,
         "rendered": null,
@@ -1165,7 +1180,7 @@ ShallowWrapper {
         "children": Array [
           <img
             alt=""
-            src="https://image.tmdb.org/t/p/w500undefined"
+            src="https://image.tmdb.org/t/p/w500This is a string"
           />,
           <div
             className="movie-info"
@@ -1211,7 +1226,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "alt": "",
-            "src": "https://image.tmdb.org/t/p/w500undefined",
+            "src": "https://image.tmdb.org/t/p/w500This is a string",
           },
           "ref": null,
           "rendered": null,

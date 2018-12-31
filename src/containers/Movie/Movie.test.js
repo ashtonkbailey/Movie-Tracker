@@ -18,9 +18,14 @@ describe('Movie', () => {
         id: 123,
         rating: 9,
         text: 'MovieText',
-        release: 'May4bewithyou'
+        release: 'May4bewithyou',
+        poster: 'This is a string'
       }
-      const wrapper = shallow(<Movie user={mockUser} {...mockFav} />)
+      const mockGetFavoritesThunk = jest.fn()
+      const mockRemoveFavoriteThunk = jest.fn()
+      const mockAddFavoriteThunk = jest.fn()
+      const mockFavoritesArray = []
+      const wrapper = shallow(<Movie user={mockUser} {...mockFav} favorites={mockFavoritesArray} addFavoriteThunk={mockAddFavoriteThunk} getFavoritesThunk={mockGetFavoritesThunk} removeFavoriteThunk={mockRemoveFavoriteThunk}/>)
 
       expect(wrapper).toMatchSnapshot()
     })
@@ -33,26 +38,18 @@ describe('Movie', () => {
         rating: 9,
         text: 'MovieText',
         release: 'May4bewithyou',
-        favorite: true
+        favorite: true,
+        poster: 'This is a string'
       }
-      const wrapper = shallow(<Movie user={mockUser} {...mockFav} />)
+      const mockGetFavoritesThunk = jest.fn()
+      const mockRemoveFavoriteThunk = jest.fn()
+      const mockAddFavoriteThunk = jest.fn()
+      const mockFavoritesArray = []
+      const wrapper = shallow(<Movie user={mockUser} {...mockFav} favorites={mockFavoritesArray} addFavoriteThunk={mockAddFavoriteThunk} getFavoritesThunk={mockGetFavoritesThunk} removeFavoriteThunk={mockRemoveFavoriteThunk}/>)
 
       expect(wrapper).toMatchSnapshot()
     })
-
-    it('should match the snapshot when there is a user logged in and not a favorite', () => {
-      const mockUser = {name: ''}
-      const mockFav = {
-        title: 'MovieTitle',
-        id: 123,
-        rating: 9,
-        text: 'MovieText',
-        release: 'May4bewithyou',
-        favorite: false
-      }
-      const wrapper = shallow(<Movie user={mockUser} {...mockFav} />)
-      expect(wrapper).toMatchSnapshot()
-    })
+    
   })
 
   describe('mapStateToProps', () => {
@@ -105,7 +102,9 @@ describe('Movie', () => {
       const mockAddThunk = jest.fn()
       const mockGetThunk = jest.fn()
       const mockUser = { name: 'Bob' }
-      const wrapper = shallow(<Movie {...mockProps} addFavoriteThunk={mockAddThunk} getFavoritesThunk={mockGetThunk} user={mockUser} />)
+      const mockRemoveFavoriteThunk = jest.fn()
+      const mockFavoritesArray = []
+      const wrapper = shallow(<Movie {...mockProps} addFavoriteThunk={mockAddThunk} getFavoritesThunk={mockGetThunk} user={mockUser} favorites={mockFavoritesArray} removeFavoriteThunk={mockRemoveFavoriteThunk}/>)
 
       await wrapper.find('.add-to-favs').simulate('click')
 
@@ -120,7 +119,10 @@ describe('Movie', () => {
       const mockRemoveThunk = jest.fn()
       const mockGetThunk = jest.fn()
       const mockUser = { name: 'Bob' }
-      const wrapper = shallow(<Movie {...mockProps} removeFavoriteThunk={mockRemoveThunk} getFavoritesThunk={mockGetThunk} user={mockUser} />)
+      const addFavoriteThunk = jest.fn()
+      const mockFavoritesArray = []
+
+      const wrapper = shallow(<Movie {...mockProps} removeFavoriteThunk={mockRemoveThunk} favorites={mockFavoritesArray} addFavoriteThunk = {addFavoriteThunk} getFavoritesThunk={mockGetThunk} user={mockUser} />)
 
       await wrapper.find('.add-to-favs').simulate('click')
 

@@ -86,7 +86,7 @@ Movie.propTypes = {
   poster: PropTypes.string.isRequired,
   favorites: PropTypes.array.isRequired,
   addFavoriteThunk: PropTypes.func.isRequired,
-  getFavoriteThunk: PropTypes.func.isRequired,
+  getFavoritesThunk: PropTypes.func.isRequired,
   removeFavoriteThunk: PropTypes.func.isRequired
 
 }
