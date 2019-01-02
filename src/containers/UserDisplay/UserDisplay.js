@@ -2,7 +2,7 @@ import React from 'react';
 import '../../index.scss';
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-import { logOutUser } from '../../actions/index';
+import { logOutUser, clearFavorites } from '../../actions/index';
 import PropTypes from 'prop-types';
 
 export const UserDisplay = (props) => {
@@ -11,10 +11,16 @@ export const UserDisplay = (props) => {
 
   if (user.name) {
     button = 
-      <button 
-        className='control'
-        onClick={props.logOutUser}
-      >Log Out</button>
+      <Link 
+        to='/'
+        onClick={() => {
+          props.logOutUser()
+          props.clearFavorites()
+        }}>
+        <button 
+          className='control'
+        >Log Out</button>
+      </Link>
   } else {
     button = 
       <div className='control-btns'>
@@ -39,12 +45,14 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  logOutUser: () => dispatch(logOutUser())
+  logOutUser: () => dispatch(logOutUser()),
+  clearFavorites: () => dispatch(clearFavorites())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserDisplay);
 
 UserDisplay.propTypes = {
   user: PropTypes.object.isRequired,
-  logOutUser: PropTypes.func.isRequired
+  logOutUser: PropTypes.func.isRequired,
+  clearFavorites: PropTypes.func.isRequired
 }
