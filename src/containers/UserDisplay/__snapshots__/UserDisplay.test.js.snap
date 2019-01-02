@@ -4,6 +4,7 @@ exports[`UserDisplay UserDisplay Component should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <UserDisplay
+    clearFavorites={[MockFunction]}
     logOutUser={[MockFunction]}
     user={
       Object {
@@ -26,43 +27,33 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <button
-        className="control"
-        onClick={[MockFunction]}
+      "children": <Link
+        onClick={[Function]}
+        replace={false}
+        to="/"
       >
-        Log Out
-      </button>,
+        <button
+          className="control"
+        >
+          Log Out
+        </button>
+      </Link>,
       "className": "user-display",
     },
     "ref": null,
     "rendered": Object {
       "instance": null,
       "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": "Log Out",
-        "className": "control",
-        "onClick": [MockFunction],
-      },
-      "ref": null,
-      "rendered": "Log Out",
-      "type": "button",
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
+      "nodeType": "class",
       "props": Object {
         "children": <button
           className="control"
-          onClick={[MockFunction]}
         >
           Log Out
         </button>,
-        "className": "user-display",
+        "onClick": [Function],
+        "replace": false,
+        "to": "/",
       },
       "ref": null,
       "rendered": Object {
@@ -72,11 +63,63 @@ ShallowWrapper {
         "props": Object {
           "children": "Log Out",
           "className": "control",
-          "onClick": [MockFunction],
         },
         "ref": null,
         "rendered": "Log Out",
         "type": "button",
+      },
+      "type": [Function],
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <Link
+          onClick={[Function]}
+          replace={false}
+          to="/"
+        >
+          <button
+            className="control"
+          >
+            Log Out
+          </button>
+        </Link>,
+        "className": "user-display",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": <button
+            className="control"
+          >
+            Log Out
+          </button>,
+          "onClick": [Function],
+          "replace": false,
+          "to": "/",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Log Out",
+            "className": "control",
+          },
+          "ref": null,
+          "rendered": "Log Out",
+          "type": "button",
+        },
+        "type": [Function],
       },
       "type": "div",
     },
@@ -105,6 +148,7 @@ exports[`UserDisplay UserDisplay Component should match the snapshot with no use
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <UserDisplay
+    clearFavorites={[MockFunction]}
     logOutUser={[MockFunction]}
     user={
       Object {

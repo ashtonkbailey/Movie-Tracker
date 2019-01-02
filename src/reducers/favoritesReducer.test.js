@@ -16,4 +16,15 @@ describe('favoritesReducer', () => {
 
     expect(result).toEqual(favorites)
   })
+
+  it('should clear favorites if type is CLEAR_FAVORITES', () => {
+    const favorites = [12, 67, 23]
+    const expected = []
+    const action = {
+      type: 'CLEAR_FAVORITES'
+    }
+    const result = favoritesReducer(favorites, action)
+
+    expect(result).toEqual(expected)
+  })
 })
