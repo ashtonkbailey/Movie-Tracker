@@ -6,6 +6,7 @@ import * as actions from '../../actions/index';
 import { Redirect, withRouter, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getFavoritesThunk } from '../../thunks/getFavorites';
+import { addNewUserThunk } from '../../thunks/addNewUser';
 
 export class UserForm extends Component {
   constructor() {
@@ -49,7 +50,7 @@ export class UserForm extends Component {
 
   handleNewUser = async (newUser) => {
     try {
-      const userId = await addNewUserFetch(newUser)
+      const userId = await addNewUserThunk(newUser)
       this.props.logInUser({...newUser, id: userId})
       this.setState({ loggedIn: true })
     } catch (error) {

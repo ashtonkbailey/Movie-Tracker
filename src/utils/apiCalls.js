@@ -7,21 +7,21 @@ export const fetchMovies = async() => {
   return movieData.results
 }
 
-export const addNewUserFetch = async (user) => {
-  const url = 'http://localhost:3000/api/users/new'
-  const result = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(user),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  if (!result.ok) {
-    throw new Error('User already exists!')
-  }
-  const data = await result.json()
-  return data.id
-}
+// export const addNewUserFetch = async (user) => {
+//   const url = 'http://localhost:3000/api/users/new'
+//   const result = await fetch(url, {
+//     method: 'POST',
+//     body: JSON.stringify(user),
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   })
+//   if (!result.ok) {
+//     throw new Error('User already exists!')
+//   }
+//   const data = await result.json()
+//   return data.id
+// }
 
 export const signInUser = async (user) => {
   const url = 'http://localhost:3000/api/users'
