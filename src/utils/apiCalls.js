@@ -23,19 +23,18 @@ export const fetchMovies = async() => {
 //   return data.id
 // }
 
-export const signInUser = async (user) => {
-  const url = 'http://localhost:3000/api/users'
-  const result = await fetch(url, {
-    method: 'POST',
-    body: JSON.stringify(user),
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  if (!result.ok) {
-    throw new Error('Email or password do not match!')
-  }
-  const returnedUsers = await result.json()
-  return returnedUsers.data
-}
-
+// export const signInUser = async (user) => {
+//   const url = 'http://localhost:3000/api/users'
+//   const result = await fetch(url, {
+//     method: 'POST',
+//     body: JSON.stringify(user),
+//     headers: {
+//       'Content-Type': 'application/json'
+//     }
+//   })
+//   if (!result.ok) {
+//     throw new Error('Email or password do not match!')
+//   }
+//   const returnedUsers = await result.json()
+//   return returnedUsers.data
+// }
