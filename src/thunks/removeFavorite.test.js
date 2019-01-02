@@ -14,9 +14,9 @@ describe('removeFavoriteThunk', () => {
       statusText: 'Unable to remove favorite'
     }))
 
-    const thunk = removeFavoriteThunk(1)
+    const thunk = removeFavoriteThunk(1, 1)
 
-    await thunk(mockDispatch)
+    await thunk(mockDispatch) 
 
     expect(mockDispatch).toBeCalledWith(setError('Unable to remove favorite'))
   })
