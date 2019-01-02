@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../../index.scss';
-import { addNewUserFetch, signInUser } from '../../utils/apiCalls'
 import * as actions from '../../actions/index';
 import { Redirect, withRouter, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -41,8 +40,9 @@ export class UserForm extends Component {
   handleLogin = async (newUser) => {
     newUser.email = newUser.email.toLowerCase()
     try {
-      const loggedInUser = await signInUserThunk(newUser)
-      this.props.logInUser({...loggedInUser})
+      
+      const loggedInUser = await this.props.signInUser(newUser)
+
       this.setState({ loggedIn: true })
     } catch (error) {
       this.setState({ password: '', logInError: true })
@@ -51,8 +51,7 @@ export class UserForm extends Component {
 
   handleNewUser = async (newUser) => {
     try {
-      const userId = await addNewUserThunk(newUser)
-      this.props.logInUser({...newUser, id: userId})
+      const userId = await this.props.addNewUser(newUser)
       this.setState({ loggedIn: true })
     } catch (error) {
       this.setState({ email: '', password: '', signInError: true })
@@ -132,7 +131,8 @@ export class UserForm extends Component {
 }
 
 UserForm.propTypes = {
-  logInUser: PropTypes.func.isRequired,
+  signInUser: PropTypes.func.isRequired,
+  addNewUser: PropTypes.func.isRequired,
   user: PropTypes.object.isRequired,
   getFavoritesThunk: PropTypes.func.isRequired
 }
@@ -142,7 +142,8 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
-  logInUser: (user) => dispatch(actions.logInUser(user)),
+  signInUser: (user) => dispatch(signInUserThunk(user)),
+  addNewUser: (user) => dispatch(addNewUserThunk(user)),
   getFavoritesThunk: (userId) => dispatch(getFavoritesThunk(userId))
 })
 

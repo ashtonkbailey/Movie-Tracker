@@ -20,7 +20,8 @@ describe('addNewUserThunk', () => {
   it('should dispatch logInUser', async () => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
-        ok: true
+        ok: true,
+        json: () => mockUser
       })
     })
     const thunk = addNewUserThunk(mockUser)

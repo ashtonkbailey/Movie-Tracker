@@ -4,8 +4,9 @@ exports[`UserForm UserForm Component should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <UserForm
+    addNewUser={[MockFunction]}
     getFavoritesThunk={[MockFunction]}
-    logInUser={[MockFunction]}
+    signInUser={[MockFunction]}
     user={
       Object {
         "name": "Sam",

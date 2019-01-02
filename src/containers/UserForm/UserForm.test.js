@@ -3,36 +3,36 @@ import * as actions from '../../actions/index';
 import { shallow } from 'enzyme';
 import React from 'react';
 import { signInUserThunk } from '../../thunks/signInUser'
+import { addNewUserThunk } from '../../thunks/addNewUser'
 
 jest.mock('../../thunks/signInUser')
+jest.mock('../../thunks/addNewUser')
+
 
 describe('UserForm', () => {
   describe('mapDispatchToProps', () => {
-    it('should return a props object with the method logInUser', () => {
-    //setup
+    it('should return a props object with the method addNewUser', () => {
       const mockDispatch = jest.fn();
       const mockUser = {name: 'bob', email: 'bob@example.com', password: 'password'}
-      const action = actions.logInUser(mockUser)
-    //execution
+      const action = addNewUserThunk(mockUser)
       const mappedProps = mapDispatchToProps(mockDispatch)
-      mappedProps.logInUser(mockUser)
-    //expectation
+      mappedProps.addNewUser(mockUser)
       expect(mockDispatch).toHaveBeenCalledWith(action)
     })
   })
 
   describe('UserForm Component', () => {
     it('should match the snapshot', () => {
-      const mockLogInUser = jest.fn()
+      const mockAddNewUser = jest.fn()
+      const mockSignInUser = jest.fn()
       const mockUser = {name: 'Sam'}
       const mockGetFavoritesThunk = jest.fn()
 
-      const wrapper = shallow(<UserForm logInUser={mockLogInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk} />)
+      const wrapper = shallow(<UserForm  user={mockUser} getFavoritesThunk={mockGetFavoritesThunk} addNewUser={mockAddNewUser} signInUser={mockSignInUser}/>)
       expect(wrapper).toMatchSnapshot()
     })
 
     it('should have the correct default state', () => {
-      const mockLogInUser = jest.fn()
       const mockUser = {}
       const mockGetFavoritesThunk = jest.fn()
       const expected = {
@@ -43,16 +43,19 @@ describe('UserForm', () => {
       signInError: false,
       logInError: false
       }
-      const wrapper = shallow(<UserForm logInUser={mockLogInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk} />)
+      const mockAddNewUser = jest.fn()
+      const mockSignInUser = jest.fn()
+      const wrapper = shallow(<UserForm  user={mockUser} addNewUser={mockAddNewUser}signInUser={mockSignInUser} getFavoritesThunk={mockGetFavoritesThunk} />)
       expect(wrapper.state()).toEqual(expected)
     })
 
     it('should change the value of state when handleChange is called', () => {
+      const mockAddNewUser = jest.fn()
+      const mockSignInUser = jest.fn()
       const mockEvent = {target: {name: 'userName', value: 'sally'}}
-      const mockLogInUser = jest.fn()
       const mockUser = {}
       const mockGetFavoritesThunk = jest.fn()
-      const wrapper = shallow(<UserForm logInUser={mockLogInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk} />)
+      const wrapper = shallow(<UserForm  addNewUser={mockAddNewUser}signInUser={mockSignInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk} />)
       const expected = 'sally'
       wrapper.instance().handleChange(mockEvent)
       expect(wrapper.state().userName).toEqual(expected)
@@ -60,12 +63,13 @@ describe('UserForm', () => {
 
     describe('handleSubmit', () => {
       it('should call handleLogin', async() => {
-        const mockLogInUser = jest.fn()
+        const mockAddNewUser = jest.fn()
+        const mockSignInUser = jest.fn()
         const mockUser = {}
         const mockGetFavoritesThunk = jest.fn()
         const mockEvent = { preventDefault: jest.fn() };
-        const wrapper = shallow(<UserForm
-          type="login" logInUser={mockLogInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
+        const wrapper = shallow(<UserForm addNewUser={mockAddNewUser}signInUser={mockSignInUser}
+          type="login"  user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
         />);
         wrapper.instance().handleLogin = jest.fn();
         await wrapper.instance().handleSubmit(mockEvent, 'login');
@@ -73,12 +77,13 @@ describe('UserForm', () => {
       });
 
       it('should call HandleNewUser', async() => {
-        const mockLogInUser = jest.fn()
+        const mockAddNewUser = jest.fn()
+        const mockSignInUser = jest.fn()
         const mockUser = {}
         const mockGetFavoritesThunk = jest.fn()
         const mockEvent = { preventDefault: jest.fn() };
         const wrapper = shallow(<UserForm
-          type="signup" logInUser={mockLogInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
+          type="signup" addNewUser={mockAddNewUser}signInUser={mockSignInUser}user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
         />);
         wrapper.instance().handleNewUser = jest.fn();
         await wrapper.instance().handleSubmit(mockEvent, 'signup');
@@ -86,12 +91,13 @@ describe('UserForm', () => {
       });
 
 
-      it('should run handleSubmit on form submit', () => {
-        const mockLogInUser = jest.fn()
+      it('should run handleSubmit on form submit', () => {        
+        const mockAddNewUser = jest.fn()
+        const mockSignInUser = jest.fn()
         const mockUser = {}
         const mockGetFavoritesThunk = jest.fn()
         const wrapper = shallow(<UserForm
-          type="login" logInUser={mockLogInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
+          type="login" addNewUser={mockAddNewUser}signInUser={mockSignInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
         />);
         const e = { preventDefault: jest.fn() }
         wrapper.instance().handleSubmit = jest.fn()
@@ -109,11 +115,12 @@ describe('UserForm', () => {
       signInUserThunk.mockImplementation(()=> {
         return mockNewUser
       })
-      const mockLogInUser = jest.fn()
+      const mockAddNewUser = jest.fn()
+      const mockSignInUser = jest.fn()
       const mockUser = {}
       const mockGetFavoritesThunk = jest.fn()
       const wrapper = shallow(<UserForm
-        logInUser={mockLogInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
+        addNewUser={mockAddNewUser}signInUser={mockSignInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
         // type="login"
       />);
       const expected = true;

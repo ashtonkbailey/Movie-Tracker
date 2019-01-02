@@ -14,7 +14,8 @@ export const addNewUserThunk = (user) => {
       if (!result.ok) {
         throw new Error('User already exists!')
       }
-      dispatch(logInUser(user))
+      const data = await result.json()
+      dispatch(logInUser({...user, id: data.id}))
     } catch (error) {
       dispatch(setError(error.message))
     }
