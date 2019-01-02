@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { logOutUser } from '../../actions/index';
 import PropTypes from 'prop-types';
 
-const UserDisplay = (props) => {
+export const UserDisplay = (props) => {
   const { user } = props
   let button
 
@@ -34,17 +34,17 @@ const UserDisplay = (props) => {
   )
 }
 
-UserDisplay.propTypes = {
-  user: PropTypes.object.isRequired,
-  logOutUser: PropTypes.func.isRequired
-}
-
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   user: state.user
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   logOutUser: () => dispatch(logOutUser())
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserDisplay);
+
+UserDisplay.propTypes = {
+  user: PropTypes.object.isRequired,
+  logOutUser: PropTypes.func.isRequired
+}

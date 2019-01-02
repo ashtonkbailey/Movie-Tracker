@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import '../../index.scss';
 import Movie from '../Movie/Movie';
 import PropTypes from 'prop-types';
@@ -73,4 +73,4 @@ export const mapStateToProps = (state) => ({
   favorites: state.favorites
 })
 
-export default withRouter(connect(mapStateToProps, null)(MovieDisplay));
+export default connect(mapStateToProps, null)(MovieDisplay);
