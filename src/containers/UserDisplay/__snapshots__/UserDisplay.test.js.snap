@@ -4,6 +4,7 @@ exports[`UserDisplay UserDisplay Component should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <UserDisplay
+    logOutUser={[MockFunction]}
     user={
       Object {
         "email": "bob@gmail.com",
@@ -27,6 +28,7 @@ ShallowWrapper {
     "props": Object {
       "children": <button
         className="control"
+        onClick={[MockFunction]}
       >
         Log Out
       </button>,
@@ -40,7 +42,7 @@ ShallowWrapper {
       "props": Object {
         "children": "Log Out",
         "className": "control",
-        "onClick": undefined,
+        "onClick": [MockFunction],
       },
       "ref": null,
       "rendered": "Log Out",
@@ -56,6 +58,7 @@ ShallowWrapper {
       "props": Object {
         "children": <button
           className="control"
+          onClick={[MockFunction]}
         >
           Log Out
         </button>,
@@ -69,7 +72,7 @@ ShallowWrapper {
         "props": Object {
           "children": "Log Out",
           "className": "control",
-          "onClick": undefined,
+          "onClick": [MockFunction],
         },
         "ref": null,
         "rendered": "Log Out",
@@ -102,6 +105,7 @@ exports[`UserDisplay UserDisplay Component should match the snapshot with no use
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <UserDisplay
+    logOutUser={[MockFunction]}
     user={
       Object {
         "email": "",

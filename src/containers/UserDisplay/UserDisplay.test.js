@@ -12,13 +12,15 @@ describe('UserDisplay', () => {
 
   describe('UserDisplay Component', () => {
     it('should match the snapshot', () => {
-      const wrapper = shallow(<UserDisplay user={mockUser} />)
+      const mockLogOutUser = jest.fn()
+      const wrapper = shallow(<UserDisplay user={mockUser} logOutUser={mockLogOutUser}/>)
       expect(wrapper).toMatchSnapshot()
     })
 
     it('should match the snapshot with no user', () => {
       const noUser = { name: '', email: '', password: '' }
-      const wrapper = shallow(<UserDisplay user={noUser} />)
+      const mockLogOutUser = jest.fn()
+      const wrapper = shallow(<UserDisplay user={noUser} logOutUser={mockLogOutUser}/>)
       expect(wrapper).toMatchSnapshot()
     })
   })
