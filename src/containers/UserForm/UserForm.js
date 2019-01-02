@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../../index.scss';
-import * as actions from '../../actions/index';
 import { Redirect, withRouter, Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getFavoritesThunk } from '../../thunks/getFavorites';
@@ -40,9 +39,7 @@ export class UserForm extends Component {
   handleLogin = async (newUser) => {
     newUser.email = newUser.email.toLowerCase()
     try {
-      
-      const loggedInUser = await this.props.signInUser(newUser)
-
+      await this.props.signInUser(newUser)
       this.setState({ loggedIn: true })
     } catch (error) {
       this.setState({ password: '', logInError: true })
@@ -51,7 +48,7 @@ export class UserForm extends Component {
 
   handleNewUser = async (newUser) => {
     try {
-      const userId = await this.props.addNewUser(newUser)
+      await this.props.addNewUser(newUser)
       this.setState({ loggedIn: true })
     } catch (error) {
       this.setState({ email: '', password: '', signInError: true })
