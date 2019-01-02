@@ -1,11 +1,12 @@
-import { fetchMovies } from './apiCalls'
+// import { fetchMovies } from './apiCalls'
 import { cleanMovies } from './cleaner'
+import { getMoviesThunk } from '../thunks/getMovies'
 
-jest.mock('./apiCalls')
+jest.mock('../thunks/getMovies')
 
 describe('cleanMovies', () => {
   beforeEach(() => {
-    fetchMovies.mockImplementation(() => {
+    getMoviesThunk.mockImplementation(() => () => {
       return [
         {
           title: 'Balto',

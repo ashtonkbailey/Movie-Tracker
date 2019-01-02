@@ -14,7 +14,8 @@ export const signInUserThunk = (user) => {
       if (!result.ok) {
         throw new Error('Email or password do not match!')
       }
-      dispatch(logInUser(user))
+      const data = await result.json()
+      dispatch(logInUser(data.data))
     } catch (error) {
       dispatch(setError(error.message))
     }
