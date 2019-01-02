@@ -38,14 +38,17 @@ ShallowWrapper {
             render={[Function]}
           />
           <Route
+            exact={true}
             path="/favorites"
             render={[Function]}
           />
           <Route
+            exact={true}
             path="/signup"
             render={[Function]}
           />
           <Route
+            exact={true}
             path="/login"
             render={[Function]}
           />
@@ -123,14 +126,17 @@ ShallowWrapper {
               render={[Function]}
             />,
             <Route
+              exact={true}
               path="/favorites"
               render={[Function]}
             />,
             <Route
+              exact={true}
               path="/signup"
               render={[Function]}
             />,
             <Route
+              exact={true}
               path="/login"
               render={[Function]}
             />,
@@ -160,6 +166,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "exact": true,
               "path": "/favorites",
               "render": [Function],
             },
@@ -172,6 +179,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "exact": true,
               "path": "/signup",
               "render": [Function],
             },
@@ -184,6 +192,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
+              "exact": true,
               "path": "/login",
               "render": [Function],
             },
@@ -234,14 +243,17 @@ ShallowWrapper {
               render={[Function]}
             />
             <Route
+              exact={true}
               path="/favorites"
               render={[Function]}
             />
             <Route
+              exact={true}
               path="/signup"
               render={[Function]}
             />
             <Route
+              exact={true}
               path="/login"
               render={[Function]}
             />
@@ -319,14 +331,17 @@ ShallowWrapper {
                 render={[Function]}
               />,
               <Route
+                exact={true}
                 path="/favorites"
                 render={[Function]}
               />,
               <Route
+                exact={true}
                 path="/signup"
                 render={[Function]}
               />,
               <Route
+                exact={true}
                 path="/login"
                 render={[Function]}
               />,
@@ -356,6 +371,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "exact": true,
                 "path": "/favorites",
                 "render": [Function],
               },
@@ -368,6 +384,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "exact": true,
                 "path": "/signup",
                 "render": [Function],
               },
@@ -380,6 +397,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
+                "exact": true,
                 "path": "/login",
                 "render": [Function],
               },
