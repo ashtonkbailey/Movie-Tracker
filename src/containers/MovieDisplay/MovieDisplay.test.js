@@ -8,7 +8,7 @@ describe('MovieDisplay', () => {
   describe('MovieDisplay Component', () => {
     it('Related to which movies are displayed-- should match the snapshot, if type is home and the user has an e mail', () => {
       const mockUser = {name: 'bob', id: 123, email: 'something@anotherThing.com'}
-      const mockFavoriteArray = [{title: 'One', id: 111}]
+      const mockFavoriteArray = [111]
       const mockMoviesArray = [{title: 'One', id: 111}, {title: 'two', id: 222}]
       const wrapper = shallow(<MovieDisplay type='home' user={mockUser} movies={mockMoviesArray} favorites={mockFavoriteArray}/>)
       expect(wrapper).toMatchSnapshot()
@@ -32,7 +32,7 @@ describe('MovieDisplay', () => {
 
     it('Related to which movies are displayed-- should match the snapshot, if type is favorites and there is a user who does have favorites saved', () => {
       const mockUser = {name: 'bob', id: 123, email: 'something@anotherThing.com'}
-      const mockFavoriteArray = [{title: 'movieTitle', id: 987}]
+      const mockFavoriteArray = [222]
       const mockMoviesArray = [{title: 'One', id: 111}, {title: 'two', id: 222}]
       const wrapper = shallow(<MovieDisplay type='favorites' user={mockUser} movies={mockMoviesArray} favorites={mockFavoriteArray}/>)
       expect(wrapper).toMatchSnapshot()

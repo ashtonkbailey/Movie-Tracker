@@ -2,9 +2,9 @@ import { UserForm, mapDispatchToProps } from './UserForm';
 import * as actions from '../../actions/index';
 import { shallow } from 'enzyme';
 import React from 'react';
-import { signInUser } from '../../utils/apiCalls'
+import { signInUserThunk } from '../../thunks/signInUser'
 
-jest.mock('../../utils/apiCalls')
+jest.mock('../../thunks/signInUser')
 
 describe('UserForm', () => {
   describe('mapDispatchToProps', () => {
@@ -106,7 +106,7 @@ describe('UserForm', () => {
   describe('handleLogin', () => {
     it('should update state for logged in user', async () => {
       const mockNewUser = {name: 'bob', password: '123', email: 'bob@goodlife.com'}
-      signInUser.mockImplementation(()=> {
+      signInUserThunk.mockImplementation(()=> {
         return mockNewUser
       })
       const mockLogInUser = jest.fn()

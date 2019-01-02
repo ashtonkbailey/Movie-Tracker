@@ -17,9 +17,9 @@ describe('addNewUserThunk', () => {
     }
   })
 
-  it.skip('should dispatch logInUser', async () => {
+  it('should dispatch logInUser', async () => {
     window.fetch = jest.fn().mockImplementation(() => {
-      Promise.resolve({
+      return Promise.resolve({
         ok: true
       })
     })
