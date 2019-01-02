@@ -518,10 +518,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <MovieDisplay
     favorites={
       Array [
-        Object {
-          "id": 987,
-          "title": "movieTitle",
-        },
+        222,
       ]
     }
     movies={
@@ -572,7 +569,13 @@ ShallowWrapper {
         </Link>,
         <div
           className="movie-container"
-        />,
+        >
+          <Connect(Movie)
+            favorite={true}
+            id={222}
+            title="two"
+          />
+        </div>,
       ],
       "className": "movie-display",
     },
@@ -614,14 +617,30 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             undefined,
-            undefined,
+            <Connect(Movie)
+              favorite={true}
+              id={222}
+              title="two"
+            />,
           ],
           "className": "movie-container",
         },
         "ref": null,
         "rendered": Array [
           undefined,
-          undefined,
+          Object {
+            "instance": null,
+            "key": "222",
+            "nodeType": "class",
+            "props": Object {
+              "favorite": true,
+              "id": 222,
+              "title": "two",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
         ],
         "type": "div",
       },
@@ -648,7 +667,13 @@ ShallowWrapper {
           </Link>,
           <div
             className="movie-container"
-          />,
+          >
+            <Connect(Movie)
+              favorite={true}
+              id={222}
+              title="two"
+            />
+          </div>,
         ],
         "className": "movie-display",
       },
@@ -690,14 +715,30 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               undefined,
-              undefined,
+              <Connect(Movie)
+                favorite={true}
+                id={222}
+                title="two"
+              />,
             ],
             "className": "movie-container",
           },
           "ref": null,
           "rendered": Array [
             undefined,
-            undefined,
+            Object {
+              "instance": null,
+              "key": "222",
+              "nodeType": "class",
+              "props": Object {
+                "favorite": true,
+                "id": 222,
+                "title": "two",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
           ],
           "type": "div",
         },
@@ -967,10 +1008,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <MovieDisplay
     favorites={
       Array [
-        Object {
-          "id": 111,
-          "title": "One",
-        },
+        111,
       ]
     }
     movies={
@@ -1023,7 +1061,7 @@ ShallowWrapper {
           className="movie-container"
         >
           <Connect(Movie)
-            favorite={false}
+            favorite={true}
             id={111}
             title="One"
           />
@@ -1074,7 +1112,7 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Connect(Movie)
-              favorite={false}
+              favorite={true}
               id={111}
               title="One"
             />,
@@ -1093,7 +1131,7 @@ ShallowWrapper {
             "key": "111",
             "nodeType": "class",
             "props": Object {
-              "favorite": false,
+              "favorite": true,
               "id": 111,
               "title": "One",
             },
@@ -1142,7 +1180,7 @@ ShallowWrapper {
             className="movie-container"
           >
             <Connect(Movie)
-              favorite={false}
+              favorite={true}
               id={111}
               title="One"
             />
@@ -1193,7 +1231,7 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <Connect(Movie)
-                favorite={false}
+                favorite={true}
                 id={111}
                 title="One"
               />,
@@ -1212,7 +1250,7 @@ ShallowWrapper {
               "key": "111",
               "nodeType": "class",
               "props": Object {
-                "favorite": false,
+                "favorite": true,
                 "id": 111,
                 "title": "One",
               },
