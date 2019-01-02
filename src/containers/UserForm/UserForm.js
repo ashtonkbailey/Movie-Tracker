@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { getFavoritesThunk } from '../../thunks/getFavorites';
 import { addNewUserThunk } from '../../thunks/addNewUser';
 import { signInUserThunk } from '../../thunks/signInUser';
+import { clearError } from '../../actions'
 
 export class UserForm extends Component {
   constructor() {
@@ -37,17 +38,21 @@ export class UserForm extends Component {
   handleLogin = async (newUser) => {
     newUser.email = newUser.email.toLowerCase()
     const loggedIn = await this.props.signInUser(newUser)
-    this.setState({ loggedIn })
+    this.setState({ loggedIn, name: '', email: '', password: '' })
     if (!loggedIn) {
       this.setState({ password: '' })
+    } else {
+      this.props.clearError()
     }
   }
 
   handleNewUser = async (newUser) => {
     const loggedIn = await this.props.addNewUser(newUser)
-    this.setState({ loggedIn })
+    this.setState({ loggedIn, name: '', email: '', password: '' })
     if(!loggedIn) {
       this.setState({ email: '', password: '' })
+    } else {
+      this.props.clearError()
     }
   }
 
@@ -133,6 +138,7 @@ export const mapStateToProps = (state) => ({
 })
 
 export const mapDispatchToProps = (dispatch) => ({
+  clearError: () => dispatch(clearError()),
   signInUser: (user) => dispatch(signInUserThunk(user)),
   addNewUser: (user) => dispatch(addNewUserThunk(user)),
   getFavoritesThunk: (userId) => dispatch(getFavoritesThunk(userId))

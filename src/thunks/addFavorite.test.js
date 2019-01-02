@@ -43,4 +43,15 @@ describe('addFavoriteThunk', () => {
 
     expect(mockDispatch).toBeCalledWith(setError('Already a favorite'))
   })
+
+  it('should not throw an error if ok', async () => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true
+    }))
+    const thunk = addFavoriteThunk(mockFav, [4])
+
+    await thunk(mockDispatch)
+
+    expect(mockDispatch).toHaveBeenCalledTimes(0)
+  })
 })

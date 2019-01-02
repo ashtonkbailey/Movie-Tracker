@@ -50,6 +50,17 @@ describe('UserForm', () => {
       expect(wrapper).toMatchSnapshot()
     })
 
+    it('should match the snapshot with an error', () => {
+      const mockAddNewUser = jest.fn()
+      const mockSignInUser = jest.fn()
+      const mockUser = {name: 'Sam'}
+      const mockGetFavoritesThunk = jest.fn()
+      const mockError = 'Oh no!'
+
+      const wrapper = shallow(<UserForm  user={mockUser} getFavoritesThunk={mockGetFavoritesThunk} addNewUser={mockAddNewUser} signInUser={mockSignInUser} error={mockError} />)
+      expect(wrapper).toMatchSnapshot()
+    })
+
     it('should have the correct default state', () => {
       const mockUser = {}
       const mockGetFavoritesThunk = jest.fn()
@@ -57,9 +68,7 @@ describe('UserForm', () => {
       name: '',
       email: '',
       password: '',
-      loggedIn: false,
-      signInError: false,
-      logInError: false
+      loggedIn: false
       }
       const mockAddNewUser = jest.fn()
       const mockSignInUser = jest.fn()
@@ -130,9 +139,10 @@ describe('UserForm', () => {
         const mockSignInUser = jest.fn()
         const mockUser = {name: 'bob', password: '123', email: 'bob@goodlife.com', id: 1}
         const mockGetFavoritesThunk = jest.fn()
+        const mockError = 'Oh no!'
         const wrapper = shallow(<UserForm
           type="login" addNewUser={mockAddNewUser} signInUser={mockSignInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
-        />);
+          error={mockError} />);
         const e = { preventDefault: jest.fn() }
         wrapper.setState({logInError: true})
         await wrapper.find('form').simulate('submit', e)
@@ -148,7 +158,9 @@ describe('UserForm', () => {
         return mockNewUser
       })
       const mockAddNewUser = jest.fn()
-      const mockSignInUser = jest.fn()
+      const mockSignInUser = jest.fn().mockImplementation(()=> {
+        return true
+      })
       const mockUser = {}
       const mockGetFavoritesThunk = jest.fn()
       const wrapper = shallow(<UserForm
@@ -163,16 +175,16 @@ describe('UserForm', () => {
       const mockNewUser = {name: 'bob', password: '123', email: 'bob@goodlife.com'}
       const mockAddNewUser = jest.fn()
       const mockSignInUser = jest.fn().mockImplementation(()=> {
-        throw Error('trouble logging in')
+        return false
       })
       const mockUser = {}
       const mockGetFavoritesThunk = jest.fn()
       const wrapper = shallow(<UserForm
         addNewUser={mockAddNewUser} signInUser={mockSignInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
       />);
-      const expected = true;
+      const expected = false;
       await wrapper.instance().handleLogin(mockNewUser);
-      expect(wrapper.state().logInError).toEqual(expected);
+      expect(wrapper.state().loggedIn).toEqual(expected);
     })
   })
 
@@ -182,7 +194,9 @@ describe('UserForm', () => {
       signInUserThunk.mockImplementation(()=> {
         return mockNewUser
       })
-      const mockAddNewUser = jest.fn()
+      const mockAddNewUser = jest.fn().mockImplementation(()=> {
+        return true
+      })
       const mockSignInUser = jest.fn()
       const mockUser = {}
       const mockGetFavoritesThunk = jest.fn()
@@ -197,7 +211,7 @@ describe('UserForm', () => {
     it('should update state for logged in user', async () => {
       const mockNewUser = {name: 'bob', password: '123', email: 'bob@goodlife.com'}
       const mockAddNewUser = jest.fn().mockImplementation(() => {
-        throw Error('something')
+        return false
       })
       const mockSignInUser = jest.fn()
       const mockUser = {}
@@ -205,9 +219,9 @@ describe('UserForm', () => {
       const wrapper = shallow(<UserForm
         addNewUser={mockAddNewUser} signInUser={mockSignInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
       />);
-      const expected = true;
+      const expected = false;
       await wrapper.instance().handleNewUser(mockNewUser);
-      expect(wrapper.state().signInError).toEqual(expected);
+      expect(wrapper.state().loggedIn).toEqual(expected);
     })
   })
 

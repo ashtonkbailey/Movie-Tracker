@@ -61,6 +61,11 @@ ShallowWrapper {
         <div
           className="movie-container"
         />,
+        <p
+          className="scroll-text"
+        >
+          scroll to see all movies
+        </p>,
       ],
       "className": "movie-display",
     },
@@ -113,6 +118,18 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "scroll to see all movies",
+          "className": "scroll-text",
+        },
+        "ref": null,
+        "rendered": "scroll to see all movies",
+        "type": "p",
+      },
     ],
     "type": "div",
   },
@@ -137,6 +154,11 @@ ShallowWrapper {
           <div
             className="movie-container"
           />,
+          <p
+            className="scroll-text"
+          >
+            scroll to see all movies
+          </p>,
         ],
         "className": "movie-display",
       },
@@ -188,6 +210,18 @@ ShallowWrapper {
             undefined,
           ],
           "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "scroll to see all movies",
+            "className": "scroll-text",
+          },
+          "ref": null,
+          "rendered": "scroll to see all movies",
+          "type": "p",
         },
       ],
       "type": "div",
@@ -285,6 +319,11 @@ ShallowWrapper {
             title="two"
           />
         </div>,
+        <p
+          className="scroll-text"
+        >
+          scroll to see all movies
+        </p>,
       ],
       "className": "movie-display",
     },
@@ -369,6 +408,18 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "scroll to see all movies",
+          "className": "scroll-text",
+        },
+        "ref": null,
+        "rendered": "scroll to see all movies",
+        "type": "p",
+      },
     ],
     "type": "div",
   },
@@ -404,6 +455,11 @@ ShallowWrapper {
               title="two"
             />
           </div>,
+          <p
+            className="scroll-text"
+          >
+            scroll to see all movies
+          </p>,
         ],
         "className": "movie-display",
       },
@@ -487,6 +543,18 @@ ShallowWrapper {
             },
           ],
           "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "scroll to see all movies",
+            "className": "scroll-text",
+          },
+          "ref": null,
+          "rendered": "scroll to see all movies",
+          "type": "p",
         },
       ],
       "type": "div",
@@ -576,6 +644,11 @@ ShallowWrapper {
             title="two"
           />
         </div>,
+        <p
+          className="scroll-text"
+        >
+          scroll to see all movies
+        </p>,
       ],
       "className": "movie-display",
     },
@@ -644,6 +717,18 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "scroll to see all movies",
+          "className": "scroll-text",
+        },
+        "ref": null,
+        "rendered": "scroll to see all movies",
+        "type": "p",
+      },
     ],
     "type": "div",
   },
@@ -674,6 +759,11 @@ ShallowWrapper {
               title="two"
             />
           </div>,
+          <p
+            className="scroll-text"
+          >
+            scroll to see all movies
+          </p>,
         ],
         "className": "movie-display",
       },
@@ -741,6 +831,18 @@ ShallowWrapper {
             },
           ],
           "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "scroll to see all movies",
+            "className": "scroll-text",
+          },
+          "ref": null,
+          "rendered": "scroll to see all movies",
+          "type": "p",
         },
       ],
       "type": "div",
@@ -826,6 +928,11 @@ ShallowWrapper {
             You have no saved favorites
           </h2>
         </div>,
+        <p
+          className="scroll-text"
+        >
+          scroll to see all movies
+        </p>,
       ],
       "className": "movie-display",
     },
@@ -887,6 +994,18 @@ ShallowWrapper {
         },
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "scroll to see all movies",
+          "className": "scroll-text",
+        },
+        "ref": null,
+        "rendered": "scroll to see all movies",
+        "type": "p",
+      },
     ],
     "type": "div",
   },
@@ -917,6 +1036,11 @@ ShallowWrapper {
               You have no saved favorites
             </h2>
           </div>,
+          <p
+            className="scroll-text"
+          >
+            scroll to see all movies
+          </p>,
         ],
         "className": "movie-display",
       },
@@ -977,6 +1101,18 @@ ShallowWrapper {
             "type": "h2",
           },
           "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "scroll to see all movies",
+            "className": "scroll-text",
+          },
+          "ref": null,
+          "rendered": "scroll to see all movies",
+          "type": "p",
         },
       ],
       "type": "div",
@@ -1071,6 +1207,11 @@ ShallowWrapper {
             title="two"
           />
         </div>,
+        <p
+          className="scroll-text"
+        >
+          scroll to see all movies
+        </p>,
       ],
       "className": "movie-display",
     },
@@ -1155,6 +1296,18 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "scroll to see all movies",
+          "className": "scroll-text",
+        },
+        "ref": null,
+        "rendered": "scroll to see all movies",
+        "type": "p",
+      },
     ],
     "type": "div",
   },
@@ -1190,6 +1343,11 @@ ShallowWrapper {
               title="two"
             />
           </div>,
+          <p
+            className="scroll-text"
+          >
+            scroll to see all movies
+          </p>,
         ],
         "className": "movie-display",
       },
@@ -1274,6 +1432,18 @@ ShallowWrapper {
           ],
           "type": "div",
         },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "scroll to see all movies",
+            "className": "scroll-text",
+          },
+          "ref": null,
+          "rendered": "scroll to see all movies",
+          "type": "p",
+        },
       ],
       "type": "div",
     },
@@ -1354,6 +1524,11 @@ ShallowWrapper {
             title="two"
           />
         </div>,
+        <p
+          className="scroll-text"
+        >
+          scroll to see all movies
+        </p>,
       ],
       "className": "movie-display",
     },
@@ -1410,6 +1585,18 @@ ShallowWrapper {
         ],
         "type": "div",
       },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "scroll to see all movies",
+          "className": "scroll-text",
+        },
+        "ref": null,
+        "rendered": "scroll to see all movies",
+        "type": "p",
+      },
     ],
     "type": "div",
   },
@@ -1435,6 +1622,11 @@ ShallowWrapper {
               title="two"
             />
           </div>,
+          <p
+            className="scroll-text"
+          >
+            scroll to see all movies
+          </p>,
         ],
         "className": "movie-display",
       },
@@ -1490,6 +1682,18 @@ ShallowWrapper {
             },
           ],
           "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "scroll to see all movies",
+            "className": "scroll-text",
+          },
+          "ref": null,
+          "rendered": "scroll to see all movies",
+          "type": "p",
         },
       ],
       "type": "div",
