@@ -16,8 +16,10 @@ export const signInUserThunk = (user) => {
       }
       const data = await result.json()
       dispatch(logInUser(data.data))
+      return true
     } catch (error) {
       dispatch(setError(error.message))
+      return false
     }
   }
 }

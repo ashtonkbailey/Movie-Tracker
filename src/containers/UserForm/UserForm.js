@@ -14,9 +14,7 @@ export class UserForm extends Component {
       name: '',
       email: '',
       password: '',
-      loggedIn: false,
-      signInError: false,
-      logInError: false
+      loggedIn: false
     }
   }
 
@@ -31,47 +29,42 @@ export class UserForm extends Component {
     type === 'login'
       ? await this.handleLogin(newUser)
       : await this.handleNewUser(newUser)
-    if (!this.state.signInError && !this.state.logInError){
+    if (!this.props.error){
       this.props.getFavoritesThunk(this.props.user.id)
     }
   }
 
   handleLogin = async (newUser) => {
     newUser.email = newUser.email.toLowerCase()
-    try {
-      await this.props.signInUser(newUser)
-      this.setState({ loggedIn: true })
-    } catch (error) {
-      this.setState({ password: '', logInError: true })
+    const loggedIn = await this.props.signInUser(newUser)
+    this.setState({ loggedIn })
+    if (!loggedIn) {
+      this.setState({ password: '' })
     }
   }
 
   handleNewUser = async (newUser) => {
-    try {
-      await this.props.addNewUser(newUser)
-      this.setState({ loggedIn: true })
-    } catch (error) {
-      this.setState({ email: '', password: '', signInError: true })
+    const loggedIn = await this.props.addNewUser(newUser)
+    this.setState({ loggedIn })
+    if(!loggedIn) {
+      this.setState({ email: '', password: '' })
     }
   }
 
   render() {
-    const { type } = this.props
-    const { signInError, logInError } = this.state
+    const { type, error } = this.props
     if (this.state.loggedIn) {
       return <Redirect to='/' />
     }
 
     let errorText
-    if (signInError) {
-      errorText = 'User email already exists! Please log in or try a different email.'
-    } else if (logInError) {
-      errorText = 'Email and password do not match.'
+    if (error) {
+      errorText = error
     }
 
-    let error = false
-    if (signInError || logInError) {
-      error = true
+    let errorClass = false
+    if (error) {
+      errorClass = true
     }
 
     let button
@@ -121,7 +114,7 @@ export class UserForm extends Component {
           />
           <button>{button}</button>
         </form>
-        <p className={`user-msg ${error && 'error'}`}>{errorText}</p>
+        <p className={`user-msg ${errorClass && 'error'}`}>{errorText}</p>
       </div>
     )
   }
@@ -135,7 +128,8 @@ UserForm.propTypes = {
 }
 
 export const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  error: state.error
 })
 
 export const mapDispatchToProps = (dispatch) => ({
