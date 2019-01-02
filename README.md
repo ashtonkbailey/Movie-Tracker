@@ -40,9 +40,7 @@ export const apiKey = //Your key here//
 ## Contributors and roles
 
 ### Sara Ebbers - Co-lead Developer
-
 ### Jamie Rushford - Co-lead Developer
-
 ### Ashton Bailey - Co-lead Developer
 
 ## Technologies and Resources Used
