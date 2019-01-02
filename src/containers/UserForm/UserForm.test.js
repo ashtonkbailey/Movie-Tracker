@@ -1,5 +1,5 @@
 import { UserForm, mapDispatchToProps } from './UserForm';
-import * as actions from '../../actions/index';
+import { clearError } from '../../actions/index';
 import { shallow } from 'enzyme';
 import React from 'react';
 import { signInUserThunk } from '../../thunks/signInUser'
@@ -35,6 +35,14 @@ describe('UserForm', () => {
       const action = getFavoritesThunk(1)
       const mappedProps = mapDispatchToProps(mockDispatch)
       mappedProps.getFavoritesThunk(1)
+      expect(mockDispatch).toHaveBeenCalledWith(action)
+    })
+
+    it('should return a props object with the method clearError', () => {
+      const mockDispatch = jest.fn();
+      const action = clearError()
+      const mappedProps = mapDispatchToProps(mockDispatch)
+      mappedProps.clearError()
       expect(mockDispatch).toHaveBeenCalledWith(action)
     })
   })
@@ -162,9 +170,10 @@ describe('UserForm', () => {
         return true
       })
       const mockUser = {}
+      const mockClear = jest.fn()
       const mockGetFavoritesThunk = jest.fn()
       const wrapper = shallow(<UserForm
-        addNewUser={mockAddNewUser} signInUser={mockSignInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
+        addNewUser={mockAddNewUser} signInUser={mockSignInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk} clearError={mockClear}
       />);
       const expected = true;
       await wrapper.instance().handleLogin(mockNewUser);
@@ -198,10 +207,11 @@ describe('UserForm', () => {
         return true
       })
       const mockSignInUser = jest.fn()
+      const mockClear = jest.fn()
       const mockUser = {}
       const mockGetFavoritesThunk = jest.fn()
       const wrapper = shallow(<UserForm
-        addNewUser={mockAddNewUser} signInUser={mockSignInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk}
+        addNewUser={mockAddNewUser} signInUser={mockSignInUser} user={mockUser} getFavoritesThunk={mockGetFavoritesThunk} clearError={mockClear}
       />);
       const expected = true;
       await wrapper.instance().handleNewUser(mockNewUser);

@@ -20,7 +20,7 @@ export class App extends Component {
     return (
       <div className="App">
         <Link to="/">
-          <h1>
+          <h1 className="title">
             Movie
             <br/>
             Tracker

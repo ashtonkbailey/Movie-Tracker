@@ -16,4 +16,11 @@ describe('errorReducer', () => {
 
     expect(result).toEqual(error)
   })
+
+  it('should clear the error message if type is CLEAR_ERROR', () => {
+    const action = { type: 'CLEAR_ERROR' }
+    const result = errorReducer('Bad stuff!', action)
+
+    expect(result).toEqual('')
+  })
 })
