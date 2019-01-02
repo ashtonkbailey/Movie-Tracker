@@ -3,7 +3,15 @@
 exports[`UserForm UserForm Component should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <UserForm />,
+  Symbol(enzyme.__unrendered__): <UserForm
+    getFavoritesThunk={[MockFunction]}
+    logInUser={[MockFunction]}
+    user={
+      Object {
+        "name": "Sam",
+      }
+    }
+  />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],

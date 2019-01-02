@@ -56,6 +56,14 @@ export const apiKey = //Your key here//
   - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Design and Comps (Wire-frame, Application Screen shots)
+### Wire-frame Images
 <img width="885" alt="wireframeuser pfd" src="https://user-images.githubusercontent.com/39168394/50180383-b0881800-02c6-11e9-95eb-654960e3b15f.png">
 <img width="869" alt="wireframenotsignedin pfd" src="https://user-images.githubusercontent.com/39168394/50180388-b2ea7200-02c6-11e9-820b-376381f33643.png">
 <img width="867" alt="login-signin pfd" src="https://user-images.githubusercontent.com/39168394/50180390-b4b43580-02c6-11e9-8a74-e056edc6a918.png">
+
+### Final App Images
+![screen shot 2019-01-02 at 8 44 23 am](https://user-images.githubusercontent.com/39168394/50599523-95dba480-0e6b-11e9-8479-c2db4aca4a48.png)
+![screen shot 2019-01-02 at 8 44 36 am](https://user-images.githubusercontent.com/39168394/50599530-9aa05880-0e6b-11e9-89aa-1636dcfee333.png)
+![screen shot 2019-01-02 at 8 43 40 am](https://user-images.githubusercontent.com/39168394/50599534-9d02b280-0e6b-11e9-8b0f-ce1d80e47240.png)
+![screen shot 2019-01-02 at 8 43 56 am](https://user-images.githubusercontent.com/39168394/50599536-9ffda300-0e6b-11e9-97f4-c38540639bbd.png)
+

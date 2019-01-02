@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import { Route, Switch, withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import '../../index.scss';
-import * as clean from '../../utils/cleaner';
-import * as actions from '../../actions/index';
 import MovieDisplay from '../../containers/MovieDisplay/MovieDisplay';
 import UserDisplay from '../../containers/UserDisplay/UserDisplay';
 import UserForm from '../../containers/UserForm/UserForm';
 import PropTypes from 'prop-types'
+import * as clean from '../../utils/cleaner';
+import * as actions from '../../actions/index';
 
-class App extends Component {
-  
-  async componentDidMount(){
+export class App extends Component {
+
+  async componentDidMount() {
     const movies = await clean.cleanMovies()
     this.props.addMovies(movies)
   }
-
 
   render() {
     return (
@@ -46,16 +45,19 @@ class App extends Component {
 }
 
 App.propTypes = {
-  movies: PropTypes.array.isRequired,
-  addMovies: PropTypes.func.isRequired
+  movies: PropTypes.array
 }
 
-const mapStateToProps = (state) => ({
+App.defaultProps = {
+  movies: []
+}
+
+export const mapStateToProps = (state) => ({
   movies: state.movies
 })
 
-const mapDispatchToProps = (dispatch) => ({
-  addMovies: (movies)=>dispatch(actions.addMovies(movies))
+export const mapDispatchToProps = (dispatch) => ({
+  addMovies: (movies) => dispatch(actions.addMovies(movies))
 })
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
