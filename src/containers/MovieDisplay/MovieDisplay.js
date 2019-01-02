@@ -54,7 +54,7 @@ export class MovieDisplay extends Component {
         <div className="movie-container">
           {movies}
         </div>
-        <p class="scroll-text">scroll to see all movies</p>
+        <p className="scroll-text">scroll to see all movies</p>
       </div>
     )
   }

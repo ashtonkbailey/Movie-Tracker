@@ -16,8 +16,10 @@ export const addNewUserThunk = (user) => {
       }
       const data = await result.json()
       dispatch(logInUser({...user, id: data.id}))
+      return true
     } catch (error) {
       dispatch(setError(error.message))
+      return false
     }
   }
 }
