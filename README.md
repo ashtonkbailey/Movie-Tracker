@@ -37,11 +37,10 @@ export const apiKey = //Your key here//
 
 ```npm start``` - you will be asked if you should start the server on a new port - say 'yes'
 
-## Contributors and roles
-
-### Sara Ebbers - Co-lead Developer
-### Jamie Rushford - Co-lead Developer
-### Ashton Bailey - Co-lead Developer
+## Contributors 
+#### Sara Ebbers - Co-lead Developer
+#### Jamie Rushford - Co-lead Developer
+#### Ashton Bailey - Co-lead Developer
 
 ## Technologies and Resources Used
   - React
@@ -60,8 +59,7 @@ export const apiKey = //Your key here//
 <img width="867" alt="login-signin pfd" src="https://user-images.githubusercontent.com/39168394/50180390-b4b43580-02c6-11e9-8a74-e056edc6a918.png">
 
 ### Final App Images
-![screen shot 2019-01-02 at 8 44 23 am](https://user-images.githubusercontent.com/39168394/50599523-95dba480-0e6b-11e9-8479-c2db4aca4a48.png)
-![screen shot 2019-01-02 at 8 44 36 am](https://user-images.githubusercontent.com/39168394/50599530-9aa05880-0e6b-11e9-89aa-1636dcfee333.png)
+<img width="1435" alt="screen shot 2019-01-03 at 8 50 46 am" src="https://user-images.githubusercontent.com/39168394/50647162-1d411a80-0f35-11e9-8e01-cef2122e17a1.png">
 ![screen shot 2019-01-02 at 8 43 40 am](https://user-images.githubusercontent.com/39168394/50599534-9d02b280-0e6b-11e9-8b0f-ce1d80e47240.png)
 ![screen shot 2019-01-02 at 8 43 56 am](https://user-images.githubusercontent.com/39168394/50599536-9ffda300-0e6b-11e9-97f4-c38540639bbd.png)
 
