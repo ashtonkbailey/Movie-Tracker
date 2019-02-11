@@ -60,6 +60,6 @@ export const apiKey = //Your key here//
 
 ### Final App Images
 <img width="1435" alt="screen shot 2019-01-03 at 8 50 46 am" src="https://user-images.githubusercontent.com/39168394/50647162-1d411a80-0f35-11e9-8e01-cef2122e17a1.png">
-![log in](/src/assets/loginlive.png "log in")
-![sign up](/src/assets/signuplive.png "sign up")
+![log in](Movie-Tracker/src/assets/loginlive.png "log in")
+![sign up](Movie-Tracker/src/assets/signuplive.png "sign up")
 
