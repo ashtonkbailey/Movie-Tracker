@@ -24,7 +24,9 @@ ShallowWrapper {
           replace={false}
           to="/"
         >
-          <h1>
+          <h1
+            className="title"
+          >
             Movie
             <br />
             Tracker
@@ -67,7 +69,9 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "class",
         "props": Object {
-          "children": <h1>
+          "children": <h1
+            className="title"
+          >
             Movie
             <br />
             Tracker
@@ -86,6 +90,7 @@ ShallowWrapper {
               <br />,
               "Tracker",
             ],
+            "className": "title",
           },
           "ref": null,
           "rendered": Array [
@@ -229,7 +234,9 @@ ShallowWrapper {
             replace={false}
             to="/"
           >
-            <h1>
+            <h1
+              className="title"
+            >
               Movie
               <br />
               Tracker
@@ -272,7 +279,9 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "class",
           "props": Object {
-            "children": <h1>
+            "children": <h1
+              className="title"
+            >
               Movie
               <br />
               Tracker
@@ -291,6 +300,7 @@ ShallowWrapper {
                 <br />,
                 "Tracker",
               ],
+              "className": "title",
             },
             "ref": null,
             "rendered": Array [
