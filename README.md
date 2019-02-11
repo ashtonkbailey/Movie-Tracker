@@ -1,7 +1,7 @@
 # MovieTracker 
 
 ## Description
-Movie tracker is a web application designed to allow the user to create a collection of their favorite films. Movie data is populated via [The Movie Database API](https://www.themoviedb.org/documentation/api). Account handling is done via a local backend built in Express.
+Movie tracker is a web application designed to allow the user to create a collection of their favorite films that are in theaters. Movie data is populated via [The Movie Database API](https://www.themoviedb.org/documentation/api). Account handling is done via a local backend built in Express.
 
 This project is a part of the Front End Engineering Program at the Turing School of Software and Design. You can find the specs for it [here](https://github.com/turingschool-examples/movie-tracker).
 
